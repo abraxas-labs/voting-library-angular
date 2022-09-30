@@ -1,0 +1,26 @@
+@import '~projects/abraxas/voting-lib/src/lib/style/spacing';
+
+:host {
+  position: relative;
+  display: inline-block;
+
+  .spinner-container {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+
+    &.right {
+      @extend .ml-2;
+
+      left: 100%;
+    }
+
+    &.left {
+      @extend .mr-2;
+
+      right: 100%;
+    }
+  }
+}

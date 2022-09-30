@@ -1,0 +1,4 @@
+<div mat-menu-item [disabled]="disabled" (click)="!disabled && action.emit()">
+  <bc-icon *ngIf="icon" [icon]="icon"></bc-icon>
+  {{ text | translate }}
+</div>

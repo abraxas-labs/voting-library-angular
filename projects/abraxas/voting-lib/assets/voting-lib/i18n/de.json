@@ -1,0 +1,92 @@
+{
+  "ENV": {
+    "local": "local",
+    "local-sta": "local/sta",
+    "sta": "Staging",
+    "pre": "Pre-Prod",
+    "arc": "Archiv",
+    "uat": "Simulation",
+    "pro": "Produktion",
+    "prod": "Produktion",
+    "bbt": "Bug Bounty Testing"
+  },
+  "SELECT": {
+    "LOADING": "Laden...",
+    "NOT_FOUND": "nichts gefunden",
+    "TYPE_TO_SEARCH": "Tippen um zu suchen..."
+  },
+  "COMMON": {
+    "BACK": "← zurück",
+    "CANCEL": "Abbrechen",
+    "OK": "Ok",
+    "SAVE": "Speichern",
+    "LOADING": "Laden...",
+    "ADD": "Hinzufügen"
+  },
+  "COUNTING_CIRCLE_RESULT_STATE": {
+    "1": "",
+    "2": "in Erfassung",
+    "3": "zur Korrektur",
+    "4": "Erfassung beendet",
+    "5": "Korrektur beendet",
+    "6": "Vorläufig geprüft",
+    "7": "Alles plausibilisiert"
+  },
+  "DOMAIN_OF_INFLUENCE_TYPES": {
+    "1": "Bund",
+    "2": "Kanton",
+    "3": "Bezirk",
+    "4": "Gemeinde",
+    "5": "Stadtkreis",
+    "6": "Schulgemeinde",
+    "7": "Kirchgemeinde",
+    "8": "Ortsbürgergemeinde",
+    "9": "Korporation",
+    "10": "Andere"
+  },
+  "DOMAIN_OF_INFLUENCE_CANTONS": {
+    "1": "St.Gallen",
+    "2": "Thurgau",
+    "3": "Zürich"
+  },
+  "EXPORTS": {
+    "ENTITY_TYPES": {
+      "1": "Urnengang",
+      "2": "Abstimmung",
+      "3": "Majorzwahl",
+      "4": "Proporzwahl"
+    },
+    "FILE_FORMATS": {
+      "1": "csv",
+      "2": "pdf",
+      "3": "xml"
+    }
+  },
+  "ERRORS": {
+    "GENERIC": {
+      "TITLE": "Fehler",
+      "MESSAGE": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später nochmal. {{detail}}"
+    },
+    "3": {
+      "MESSAGE": "Die eingegebenen Daten sind nicht valide."
+    },
+    "6": {
+      "MESSAGE": "Duplikat"
+    },
+    "7": {
+      "MESSAGE": "Zugriff verweigert."
+    },
+    "16": {
+      "MESSAGE": "Nicht authentisiert. Loggen Sie sich erneut ein."
+    },
+    "400": {
+      "MESSAGE": "Die eingegebenen Daten sind nicht valide."
+    },
+    "401": {
+      "MESSAGE": "Nicht authentisiert. Loggen Sie sich erneut ein."
+    },
+    "403": {
+      "MESSAGE": "Zugriff verweigert."
+    }
+  }
+}

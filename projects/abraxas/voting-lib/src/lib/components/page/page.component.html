@@ -1,0 +1,29 @@
+<div class="page">
+  <!-- awaiting https://github.com/angular/angular/issues/12530 -->
+  <div>
+    <ng-content select="[header]"></ng-content>
+  </div>
+
+  <div class="container" [class.sidebar-open]="sidebarOpen">
+    <div class="content" [style.margin-right]="sidebarOpen ? sidebarWidth : '0'">
+      <ng-container *ngIf="contentLoading; else content">
+        <h1>
+          <bc-spinner size="2.5rem" class="mr-1"></bc-spinner>
+          {{ 'COMMON.LOADING' | translate }}
+        </h1>
+      </ng-container>
+      <ng-template #content>
+        <vo-lib-back-button *ngIf="showBackButton" [navigateCommands]="backButtonNavigateCommands"></vo-lib-back-button>
+        <h1 *ngIf="header" class="page-title">{{ header | translate }}</h1>
+        <ng-content select="[page-header]"></ng-content>
+        <main>
+          <ng-content></ng-content>
+        </main>
+        <ng-content select="[page-footer]"></ng-content>
+      </ng-template>
+    </div>
+
+    <vo-lib-sidebar [(open)]="sidebarOpen" [sidebarWidth]="sidebarWidth" *ngIf="enableSidebar" [sidebarTemplate]="sidebarTemplate">
+    </vo-lib-sidebar>
+  </div>
+</div>

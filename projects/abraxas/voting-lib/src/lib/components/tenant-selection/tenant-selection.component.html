@@ -1,0 +1,14 @@
+<vo-lib-inline-spinner class="full-width" spinnerClass="mt-4" [loading]="loadingTenants">
+  <bc-autocomplete
+    class="mt-2 full-width"
+    [label]="label | translate"
+    [items]="tenants"
+    [disabled]="disabled"
+    [required]="true"
+    [clearable]="false"
+    displayExpr="name"
+    [value]="selectedTenantValue"
+    (valueChange)="setSelectedTenant($event)"
+    (filterValueChange)="searchTenants($event)"
+  ></bc-autocomplete>
+</vo-lib-inline-spinner>

@@ -1,0 +1,29 @@
+@import '~projects/abraxas/voting-lib/src/lib/style/color';
+
+.sidebar {
+  position: absolute;
+  background-color: $color-grey-7;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  overflow: auto;
+
+  .sidebar-closer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+  }
+
+  &.sidebar-open {
+    padding: 3rem 2rem 2rem;
+    box-sizing: border-box;
+  }
+}
+
+.sidebar-drawer {
+  position: fixed;
+  right: 0;
+  cursor: pointer;
+}

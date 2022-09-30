@@ -1,0 +1,14 @@
+<bc-search [(value)]="searchText" class="my-3" [placeholder]="'APP.SEARCH' | translate"> </bc-search>
+<div *ngIf="showAdd" class="flex full-width">
+  <bc-button [variant]="'tertiary'" [label]="addLabel | translate" [icon]="'plus'" (buttonClick)="addClicked.emit()"></bc-button>
+</div>
+
+<vo-lib-tree-navigation
+  [nodes]="filteredNodes"
+  [editModeEnabled]="editModeEnabled"
+  (nodeDelete)="nodeDelete.emit($event)"
+  (selectedNodeChange)="selectedNodeChange.emit($event)"
+  (nodeEdit)="nodeEdit.emit($event)"
+  (nodeInfo)="nodeInfo.emit($event)"
+  [rowTemplate]="rowTemplate"
+></vo-lib-tree-navigation>

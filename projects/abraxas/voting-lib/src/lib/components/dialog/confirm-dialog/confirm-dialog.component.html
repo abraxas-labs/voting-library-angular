@@ -1,0 +1,12 @@
+<vo-lib-dialog>
+  <h3 header>{{ title | translate }}</h3>
+
+  <div content>
+    <p>{{ message | translate }}</p>
+  </div>
+
+  <div footer class="buttons" [class.align-right]="!showCancel">
+    <bc-button *ngIf="showCancel" (buttonClick)="cancel()" [label]="cancelText | translate"></bc-button>
+    <bc-button variant="primary" (buttonClick)="confirm()" [label]="confirmText | translate"></bc-button>
+  </div>
+</vo-lib-dialog>

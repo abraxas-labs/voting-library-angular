@@ -1,0 +1,26 @@
+@use '@abraxas/base-components/src/lib/styles/theming';
+@use './color';
+
+/*
+  NOTE: If you want to add another theme, make sure to add it to the known themes in the ThemeService.
+  Usage of :where() is needed due to specificity issues (https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
+  Without it, the basic theme declarations (such as .mat-button) would suddenly become much more specific,
+  such as [data-theme='default' .mat-button) and would override some Base Components declarations.
+ */
+
+:where([data-theme='default']) {
+  @include theming.bc-theme();
+  @include color.theme-colors();
+}
+
+:where([data-theme='sg']) {
+  $sg-palette: (
+    core: (
+      basic: #010101,
+      primary: #008334,
+    ),
+  );
+
+  @include theming.bc-theme($sg-palette, 'Helvetica');
+  @include color.theme-colors($sg-palette);
+}

@@ -1,0 +1,37 @@
+<div class="node-navigation">
+  <div *ngFor="let node of nodes">
+    <div [class.selected]="node === selectedNode" class="node-row" [ngStyle]="{ 'padding-left': padding }">
+      <bc-icon
+        [class.hidden]="!node.filteredChildNodes || node.filteredChildNodes?.length === 0"
+        (click)="toggleOpen(node)"
+        [icon]="caretIcon(node)"
+      ></bc-icon>
+      <label (click)="toggleSelectedNode(node)" (dblclick)="toggleOpen(node)">
+        <ng-container *ngIf="rowTemplate">
+          <ng-container *ngTemplateOutlet="rowTemplate; context: { $implicit: node }"></ng-container>
+        </ng-container>
+        <ng-template #noRowTemplate>
+          {{ node.displayName }}
+        </ng-template>
+      </label>
+      <div *ngIf="node === selectedNode && editModeEnabled" class="action-icons">
+        <bc-icon *ngIf="node.showInfoButton" icon="info-circle-o" (click)="nodeInfo.emit(node)"></bc-icon>
+        <bc-icon *ngIf="node.showEditButton" icon="edit" (click)="nodeEdit.emit(node)"></bc-icon>
+        <bc-icon *ngIf="node.showDeleteButton" icon="trash" iconColor="error" (click)="nodeDelete.emit(node)"></bc-icon>
+      </div>
+    </div>
+    <div>
+      <vo-lib-tree-navigation
+        *ngIf="node.filteredChildNodes && node.open"
+        [nodes]="node.filteredChildNodes"
+        [(selectedNode)]="selectedNode"
+        (nodeInfo)="nodeInfo.emit($event)"
+        (nodeEdit)="nodeEdit.emit($event)"
+        (nodeDelete)="nodeDelete.emit($event)"
+        [depth]="depth + 1"
+        [rowTemplate]="rowTemplate"
+        [editModeEnabled]="editModeEnabled"
+      ></vo-lib-tree-navigation>
+    </div>
+  </div>
+</div>

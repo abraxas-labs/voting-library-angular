@@ -1,0 +1,13 @@
+<div class="buttons" [class.sticky]="sticky">
+  <vo-lib-inline-spinner *ngIf="hasSaveButton" [loading]="saving" position="left">
+    <bc-button
+      #saveButton
+      [disabled]="!canSave || saving"
+      variant="primary"
+      [label]="saveLabel || ('COMMON.SAVE' | translate)"
+      (buttonClick)="save.emit()"
+    >
+    </bc-button>
+  </vo-lib-inline-spinner>
+  <bc-button *ngIf="hasCancelButton" (buttonClick)="cancel.emit()" [label]="cancelLabel || ('COMMON.CANCEL' | translate)"></bc-button>
+</div>

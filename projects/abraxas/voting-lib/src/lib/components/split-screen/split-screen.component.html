@@ -1,0 +1,31 @@
+<div #container class="split-screen-container" [ngClass]="orientation === 'horizontal' ? 'horizontal' : 'vertical'">
+  <div class="split-container"
+       [style.width]="orientation === 'horizontal' ? firstPercentage : null"
+       [style.height]="orientation === 'vertical' ? firstPercentage : null">
+    <ng-content select="[first]"></ng-content>
+    <ng-content select="[left]"></ng-content>
+    <ng-content select="[top]"></ng-content>
+  </div>
+  <div class="split-container"
+       [style.width]="orientation === 'horizontal' ? secondPercentage : null"
+       [style.height]="orientation === 'vertical' ? secondPercentage : null">
+    <ng-content select="[second]"></ng-content>
+    <ng-content select="[right]"></ng-content>
+    <ng-content select="[bottom]"></ng-content>
+  </div>
+  <div
+    #divider
+    [style.left]="orientation === 'horizontal' ? dividerPos : null"
+    [style.top]="orientation === 'vertical' ? dividerPos : null"
+    class="divider"
+    (pointerdown)="mousedown()"
+    (pointermove)="mousemove($event)"
+    (voLibMousemoveOutside)="mousemove($event)"
+    (voLibMouseupOutside)="mouseup()"
+    (pointerup)="mouseup()"
+  >
+    <p class="bars">|||</p>
+    <div class="line"></div>
+    <p class="bars">|||</p>
+  </div>
+</div>

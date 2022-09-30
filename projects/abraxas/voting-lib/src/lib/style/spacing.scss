@@ -1,0 +1,51 @@
+// this helper provides well known spacing helpers like mt-1 for margin top 1
+// copied from older base components.
+
+$modes: (
+  m: 'margin',
+  p: 'padding',
+);
+
+$sides: (
+  t: 'top',
+  b: 'bottom',
+  l: 'left',
+  r: 'right',
+);
+
+$sizes: (
+  0: 0 * 1rem,
+  1: 0.25 * 1rem,
+  2: 0.5 * 1rem,
+  3: 1 * 1rem,
+  4: 1.5 * 1rem,
+  5: 3 * 1rem,
+  auto: auto,
+  inherit: inherit,
+);
+
+@each $modeShort, $mode in $modes {
+  @each $sizeShort, $size in $sizes {
+    @if not($size == 'auto' and $mode == 'padding') {
+      @each $sideShort, $side in $sides {
+        .#{$modeShort}#{$sideShort}-#{$sizeShort} {
+          #{$mode}-#{$side}: $size;
+        }
+      }
+
+      .#{$modeShort}x-#{$sizeShort} {
+        #{$mode}-left: $size;
+        #{$mode}-right: $size;
+      }
+
+      .#{$modeShort}y-#{$sizeShort} {
+        #{$mode}-top: $size;
+        #{$mode}-bottom: $size;
+      }
+
+      .#{$modeShort}-#{$sizeShort} {
+        #{$mode}: $size;
+      }
+    }
+  }
+}

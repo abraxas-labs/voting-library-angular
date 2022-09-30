@@ -1,0 +1,78 @@
+@import '~projects/abraxas/voting-lib/src/lib/style/color';
+
+:host {
+  display: block;
+  height: 100%;
+  width: 100%;
+  touch-action: none;
+}
+
+.split-screen-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+
+  .split-container {
+    overflow: auto;
+  }
+
+  .divider {
+    position: absolute;
+
+    .bars {
+      user-select: none;
+      font-size: 12px;
+      color: $color-grey-5;
+    }
+
+    .line {
+      flex-shrink: 0;
+      background-color: $color-grey-5;
+    }
+  }
+
+  &.vertical {
+    flex-flow: column;
+
+    .divider {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+      left: 0;
+      right: 0;
+      height: 1.5rem;
+      cursor: row-resize;
+
+      .line {
+        height: 1px;
+        min-height: 1px;
+        width: 100%;
+        flex-grow: 10;
+      }
+
+      .bars {
+        margin: 0;
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &.horizontal {
+    .divider {
+      width: 1.5rem;
+      justify-content: space-between;
+      display: flex;
+      align-items: center;
+      top: 0;
+      bottom: 0;
+      cursor: col-resize;
+
+      .line {
+        width: 1px;
+        height: 100%;
+      }
+    }
+  }
+}

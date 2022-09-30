@@ -1,0 +1,4 @@
+<bc-icon class="action-menu-icon" icon="ellipsis-v" [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()"></bc-icon>
+<mat-menu #menu="matMenu">
+  <ng-content></ng-content>
+</mat-menu>

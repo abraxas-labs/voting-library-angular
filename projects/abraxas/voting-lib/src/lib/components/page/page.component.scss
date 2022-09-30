@@ -1,0 +1,26 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px); // 60px for the global Abraxas header
+}
+
+.container {
+  transition: all 0.15s ease-in-out;
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+
+  .content {
+    padding: 3rem 3rem 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    main {
+      overflow: auto;
+      padding: 0 0.3rem 1rem;
+    }
+  }
+}
