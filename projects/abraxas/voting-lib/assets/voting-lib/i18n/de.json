@@ -47,7 +47,8 @@
   "DOMAIN_OF_INFLUENCE_CANTONS": {
     "1": "St.Gallen",
     "2": "Thurgau",
-    "3": "Zürich"
+    "3": "Zürich",
+    "4": "Graubünden"
   },
   "EXPORTS": {
     "ENTITY_TYPES": {

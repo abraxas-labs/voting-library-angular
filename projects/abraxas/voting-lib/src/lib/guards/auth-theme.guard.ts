@@ -14,8 +14,8 @@ export class AuthThemeGuard implements CanActivate {
   ) {}
 
   public async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
-    const themeName = route.params.theme;
-    this.themeService.setTheme(themeName);
+    let themeName = route.params.theme;
+    themeName = this.themeService.setTheme(themeName);
 
     // By setting this additional scope, the login page will be white-labeled according to the theme
     this.config.scope = `${this.config.scope} urn:abraxas:iam:hosted_domain:${themeName}`;

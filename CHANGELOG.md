@@ -1,4 +1,4 @@
-# ✨ Changelog (`v2.2.3`)
+# ✨ Changelog (`v2.6.0`)
 
 All notable changes to this project will be documented in this file.
 
@@ -8,11 +8,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Info
 
 ```text
-This version -------- v2.2.3
-Previous version ---- v1.28.0
+This version -------- v2.6.0
+Previous version ---- v2.2.3
 Initial version ----- v1.28.0
-Total commits ------- 20
+Total commits ------- 5
 ```
+
+## [v2.6.0] - 2023-01-20
+
+### 🔄 Changed
+
+- add theme logo to theme service
+
+## [v2.5.0] - 2023-01-20
+
+### 🔄 Changed
+
+- cache last theme
+
+## [v2.4.1] - 2022-12-16
+
+### 🆕 Added
+
+- add domain of influence canton
+
+## [v2.4.0] - 2022-12-12
+
+### 🔄 Changed
+
+- change white labeling logo from png to svg
+
+## [v2.3.0] - 2022-12-09
+
+### 🆕 Added
+
+- add whitelabeling Logo sg
 
 ## [v2.2.3] - 2022-09-24
 
