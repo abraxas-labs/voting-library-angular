@@ -3,11 +3,12 @@
  * For license information see LICENSE file
  */
 
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 
 const contentTypeKey = 'content-type';
+const acceptKey = 'accept';
 const contentDispositionKey = 'content-disposition';
 const filenameRegex: RegExp = /filename\*=UTF-8''?([^;]*)/;
 
@@ -17,8 +18,13 @@ const filenameRegex: RegExp = /filename\*=UTF-8''?([^;]*)/;
 export class FileDownloadService {
   constructor(private readonly http: HttpClient) {}
 
-  public async postDownloadFile(url: string, body: any): Promise<void> {
-    const response = await firstValueFrom(this.http.post(url, body, { responseType: 'blob', observe: 'response' }));
+  public async postDownloadFile(url: string, body: any, acceptContentType?: string): Promise<void> {
+    const headers = new HttpHeaders();
+    if (acceptContentType !== undefined) {
+      headers.set(acceptKey, acceptContentType);
+    }
+
+    const response = await firstValueFrom(this.http.post(url, body, { responseType: 'blob', observe: 'response', headers }));
     this.saveFile(response);
   }
 

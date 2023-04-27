@@ -1,4 +1,4 @@
-# ✨ Changelog (`v2.6.0`)
+# ✨ Changelog (`v2.7.0`)
 
 All notable changes to this project will be documented in this file.
 
@@ -8,11 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Info
 
 ```text
-This version -------- v2.6.0
-Previous version ---- v2.2.3
+This version -------- v2.7.0
+Previous version ---- v2.6.0
 Initial version ----- v1.28.0
-Total commits ------- 5
+Total commits ------- 3
 ```
+
+## [v2.7.0] - 2023-02-15
+
+### 🔄 Changed
+
+- file download service accepts content type
 
 ## [v2.6.0] - 2023-01-20
 
