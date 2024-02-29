@@ -1,6 +1,7 @@
-/*!
- * (c) Copyright 2022 by Abraxas Informatik AG
- * For license information see LICENSE file
+/**
+ * (c) Copyright 2024 by Abraxas Informatik AG
+ *
+ * For license information see LICENSE file.
  */
 
 import { AuthStorageService } from '@abraxas/base-components';
@@ -23,11 +24,10 @@ export class GrpcAuthInterceptor implements GrpcInterceptor {
   constructor(private readonly authStorage: AuthStorageService) {}
 
   public intercept(req: unknown, metadata: Metadata, next: GrpcHandler): Observable<any> {
-    if (!metadata[authorizationKey]) {
-      const accessToken = this.authStorage.getItem(accessTokenStorageField) ?? noAccessTokenPresent();
-      metadata[authorizationKey] = bearerPrefix + accessToken;
-    }
-
+    const accessToken = this.authStorage.getItem(accessTokenStorageField) ?? noAccessTokenPresent();
+    // We need to overwrite the authorization explicitly. Otherwise the retry via observable doesn't work, since the
+    // existing metadata contains stale authorization data.
+    metadata[authorizationKey] = bearerPrefix + accessToken;
     return next.handle(req, metadata);
   }
 }

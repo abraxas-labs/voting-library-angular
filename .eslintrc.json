@@ -1,0 +1,39 @@
+{
+  "root": true,
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "plugins": ["license-header"],      
+      "parserOptions": {
+        "project": ["tsconfig.*?.json"],
+        "createDefaultProgram": true
+      },
+      "extends": ["plugin:@angular-eslint/recommended"],
+      "rules": {
+        "@angular-eslint/directive-selector": ["error", { "type": "attribute", "prefix": "voLib", "style": "camelCase" }],
+        "@angular-eslint/component-selector": ["error", { "type": "element", "prefix": "vo-lib", "style": "kebab-case" }],
+        "license-header/header": ["error", "license-header.js"],        
+        "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+        "max-len": [
+          "error",
+          {
+            "code": 140,
+            "ignorePattern": "^import\\s.+\\sfrom\\s.+;$"
+          }
+        ],
+        "@typescript-eslint/no-non-null-assertion": "off"
+      }
+    },
+    {
+      "files": ["*.component.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {
+        "max-len": ["error", { "code": 140 }]
+      }
+    },
+    {
+      "files": ["*.component.ts"],
+      "extends": ["plugin:@angular-eslint/template/process-inline-templates"]
+    }
+  ]
+}

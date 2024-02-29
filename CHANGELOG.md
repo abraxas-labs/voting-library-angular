@@ -1,4 +1,4 @@
-# ✨ Changelog (`v2.7.0`)
+# ✨ Changelog (`v3.0.4`)
 
 All notable changes to this project will be documented in this file.
 
@@ -8,11 +8,169 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Info
 
 ```text
-This version -------- v2.7.0
-Previous version ---- v2.6.0
+This version -------- v3.0.4
+Previous version ---- 
 Initial version ----- v1.28.0
-Total commits ------- 3
+Total commits ------- 7
 ```
+
+## [v3.0.4] - 2024-02-21
+
+### 🆕 Added
+
+- add save icon to button bar
+
+### 🆕 Added
+
+- add grpc token refresh interceptor to handle manual token refresh
+- add http token refresh interceptor to handle manual token refresh
+- add new release job for continuous development allowing intermediate version patches.
+
+### :arrows_counterclockwise: Changed
+
+- improved gRPC streaming retry handling
+
+### 🆕 Added
+
+- add error message for unknown grpc status
+
+### 🆕 Added
+
+- add error message for unknown grpc status
+
+BREAKING CHANGE: update to Angular 14 version
+
+### 🔄 Changed
+
+- Angular Update to version 14
+
+## [v2.6.4] - 2024-02-21
+
+### 🆕 Added
+
+- add grpc token refresh interceptor to handle manual token refresh
+- add http token refresh interceptor to handle manual token refresh
+- add new release job for continuous development allowing intermediate version patches.
+
+### :arrows_counterclockwise: Changed
+
+- improved gRPC streaming retry handling
+
+### 🆕 Added
+
+- add error message for unknown grpc status
+
+### 🆕 Added
+
+- add error message for unknown grpc status
+
+BREAKING CHANGE: update to Angular 14 version
+
+### 🔄 Changed
+
+- Angular Update to version 14
+
+## [v3.0.3] - 2024-02-02
+
+### 🆕 Added
+
+- add grpc token refresh interceptor to handle manual token refresh
+- add http token refresh interceptor to handle manual token refresh
+- add new release job for continuous development allowing intermediate version patches.
+
+### :arrows_counterclockwise: Changed
+
+- improved gRPC streaming retry handling
+
+### 🆕 Added
+
+- add error message for unknown grpc status
+
+### 🆕 Added
+
+- add error message for unknown grpc status
+
+BREAKING CHANGE: update to Angular 14 version
+
+### 🔄 Changed
+
+- Angular Update to version 14
+
+## [v2.6.3] - 2024-02-02
+
+### 🔄 Changed
+
+- add grpc and http interceptors to handle manual token refresh
+
+## [v2.6.2] - 2023-11-16
+
+### :arrows_counterclockwise: Changed
+
+- improved gRPC streaming retry handling
+
+### 🆕 Added
+
+- add error message for unknown grpc status
+
+### 🆕 Added
+
+- add error message for unknown grpc status
+
+BREAKING CHANGE: update to Angular 14 version
+
+### 🔄 Changed
+
+- Angular Update to version 14
+
+## [v3.0.2] - 2023-11-16
+
+### :arrows_counterclockwise: Changed
+
+- improved gRPC streaming retry handling
+
+### 🆕 Added
+
+- add error message for unknown grpc status
+
+### 🆕 Added
+
+- add error message for unknown grpc status
+
+BREAKING CHANGE: update to Angular 14 version
+
+### 🔄 Changed
+
+- Angular Update to version 14
+
+## [v2.6.1] - 2023-10-20
+
+### 🆕 Added
+
+- add error message for unknown grpc status
+
+### 🆕 Added
+
+- add error message for unknown grpc status
+
+BREAKING CHANGE: update to Angular 14 version
+
+### 🔄 Changed
+
+- Angular Update to version 14
+
+## [v3.0.1] - 2023-10-20
+
+### 🆕 Added
+
+- add error message for unknown grpc status
+
+## [v3.0.0] - 2023-05-31
+
+BREAKING CHANGE: update to Angular 14 version
+
+### 🔄 Changed
+
+- Angular Update to version 14
 
 ## [v2.7.0] - 2023-02-15
 

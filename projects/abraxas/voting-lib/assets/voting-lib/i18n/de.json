@@ -68,6 +68,9 @@
       "TITLE": "Fehler",
       "MESSAGE": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später nochmal. {{detail}}"
     },
+    "2": {
+      "MESSAGE": "Der Service ist im Moment nicht erreichbar. Bitte laden Sie die Seite neu und versuchen Sie es nochmal."
+    },
     "3": {
       "MESSAGE": "Die eingegebenen Daten sind nicht valide."
     },

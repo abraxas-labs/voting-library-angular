@@ -4,6 +4,7 @@
       #saveButton
       [disabled]="!canSave || saving"
       variant="primary"
+      [icon]="saveIcon"
       [label]="saveLabel || ('COMMON.SAVE' | translate)"
       (buttonClick)="save.emit()"
     >

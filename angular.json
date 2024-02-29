@@ -29,11 +29,13 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["projects/**/*.ts", "projects/**/*.component.html"]
+            "lintFilePatterns": [
+              "projects/**/*.ts",
+              "projects/**/*.component.html"
+            ]
           }
         }
       }
     }
-  },
-  "defaultProject": "voting-lib"
+  }
 }

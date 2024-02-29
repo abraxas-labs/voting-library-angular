@@ -1,3 +1,9 @@
+/**
+ * (c) Copyright 2024 by Abraxas Informatik AG
+ *
+ * For license information see LICENSE file.
+ */
+
 import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Component({

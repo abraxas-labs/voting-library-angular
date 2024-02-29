@@ -1,6 +1,7 @@
-/*!
- * (c) Copyright 2022 by Abraxas Informatik AG
- * For license information see LICENSE file
+/**
+ * (c) Copyright 2024 by Abraxas Informatik AG
+ *
+ * For license information see LICENSE file.
  */
 
 import {
@@ -50,6 +51,8 @@ import { HttpAuthInterceptor } from './services/http/interceptors/http-auth.inte
 import { HttpTenantInterceptor } from './services/http/interceptors/http-tenant.interceptor';
 import { SecurityUtil } from './services/security.util';
 import { REST_API_URL, SEARCH_DEBOUNCE_TIME } from './tokens';
+import { HttpTokenRefreshInterceptor } from './services/http/interceptors/http-token-refresh.interceptor';
+import { GrpcTokenRefreshInterceptor } from './services/grpc/interceptors/grpc-token-refresh.interceptor';
 
 registerLocaleData(localeDeCh);
 
@@ -92,13 +95,17 @@ const directives = [MousemoveOutsideDirective, MouseupOutsideDirective];
     MatMenuModule,
   ],
   exports: [...components, ...directives],
-  entryComponents: [ConfirmDialogComponent],
 })
 export class VotingLibModule {
   public static forRoot(restApiUrl?: string): ModuleWithProviders<VotingLibModule> {
     return {
       ngModule: VotingLibModule,
       providers: [
+        {
+          provide: GRPC_INTERCEPTORS,
+          multi: true,
+          useClass: GrpcTokenRefreshInterceptor,
+        },
         {
           provide: GRPC_INTERCEPTORS,
           multi: true,
@@ -117,6 +124,11 @@ export class VotingLibModule {
         {
           provide: REST_API_URL,
           useValue: restApiUrl,
+        },
+        {
+          provide: HTTP_INTERCEPTORS,
+          multi: true,
+          useClass: HttpTokenRefreshInterceptor,
         },
         {
           provide: HTTP_INTERCEPTORS,

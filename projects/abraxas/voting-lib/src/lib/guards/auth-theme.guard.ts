@@ -1,3 +1,9 @@
+/**
+ * (c) Copyright 2024 by Abraxas Informatik AG
+ *
+ * For license information see LICENSE file.
+ */
+
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
 import { AuthenticationConfig, IsAuthenticatedGuard } from '@abraxas/base-components';

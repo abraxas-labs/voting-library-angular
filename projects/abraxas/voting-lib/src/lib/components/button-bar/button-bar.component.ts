@@ -1,6 +1,7 @@
-/*!
- * (c) Copyright 2022 by Abraxas Informatik AG
- * For license information see LICENSE file
+/**
+ * (c) Copyright 2024 by Abraxas Informatik AG
+ *
+ * For license information see LICENSE file.
  */
 
 import { ButtonComponent } from '@abraxas/base-components';
@@ -17,6 +18,9 @@ export class ButtonBarComponent {
 
   @Input()
   public saveLabel?: string;
+
+  @Input()
+  public saveIcon?: string;
 
   @Input()
   public canSave: boolean = true;
