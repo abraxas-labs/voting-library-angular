@@ -1,5 +1,5 @@
-@import '~projects/abraxas/voting-lib/src/lib/style/color';
-@import '~projects/abraxas/voting-lib/src/lib/style/spacing';
+@import '../../style/color';
+@import '../../style/spacing';
 
 .buttons {
   @extend .py-2, .my-2;

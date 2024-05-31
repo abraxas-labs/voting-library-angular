@@ -1,4 +1,4 @@
-# ✨ Changelog (`v3.0.4`)
+# ✨ Changelog (`v4.0.1`)
 
 All notable changes to this project will be documented in this file.
 
@@ -8,11 +8,89 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Info
 
 ```text
-This version -------- v3.0.4
-Previous version ---- 
+This version -------- v4.0.1
+Previous version ---- v3.0.4
 Initial version ----- v1.28.0
-Total commits ------- 7
+Total commits ------- 3
 ```
+
+## [v4.0.1] - 2024-05-27
+
+### 🔄 Changed
+
+- change plausibilisiert state color
+
+## [v4.0.0] - 2024-04-19
+
+BREAKING CHANGE: angular 17 update
+
+### 🔄 Changed
+
+- angular 17 update
+
+## [v3.1.0] - 2024-04-18
+
+### 🔄 Changed
+
+- counting circle result state descriptions
+
+### 🆕 Added
+
+- add save icon to button bar
+
+### 🆕 Added
+
+- add grpc token refresh interceptor to handle manual token refresh
+- add http token refresh interceptor to handle manual token refresh
+- add new release job for continuous development allowing intermediate version patches.
+
+### :arrows_counterclockwise: Changed
+
+- improved gRPC streaming retry handling
+
+### 🆕 Added
+
+- add error message for unknown grpc status
+
+### 🆕 Added
+
+- add error message for unknown grpc status
+
+BREAKING CHANGE: update to Angular 14 version
+
+### 🔄 Changed
+
+- Angular Update to version 14
+
+## [v2.6.5] - 2024-04-16
+
+### 🆕 Added
+
+- add save icon to button bar
+
+### 🆕 Added
+
+- add grpc token refresh interceptor to handle manual token refresh
+- add http token refresh interceptor to handle manual token refresh
+- add new release job for continuous development allowing intermediate version patches.
+
+### :arrows_counterclockwise: Changed
+
+- improved gRPC streaming retry handling
+
+### 🆕 Added
+
+- add error message for unknown grpc status
+
+### 🆕 Added
+
+- add error message for unknown grpc status
+
+BREAKING CHANGE: update to Angular 14 version
+
+### 🔄 Changed
+
+- Angular Update to version 14
 
 ## [v3.0.4] - 2024-02-21
 

@@ -6,13 +6,13 @@
 
 import { ComponentType } from '@angular/cdk/portal';
 import { Injectable } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import {
   ConfirmDialogComponent,
   ConfirmDialogData,
   ConfirmDialogResult,
 } from '../components/dialog/confirm-dialog/confirm-dialog.component';
 import { firstValueFrom } from 'rxjs';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +21,7 @@ export class DialogService {
   constructor(private dialog: MatDialog) {}
 
   public open<T>(component: ComponentType<T>, data: any, additionalParams: any = {}): MatDialogRef<T> {
-    return this.dialog.open(component, { data, maxHeight: '90vh', ...additionalParams });
+    return this.dialog.open(component, { data, ...additionalParams });
   }
 
   public async openForResult<T, R = any>(component: ComponentType<T>, data: any, additionalParams: any = {}): Promise<R | undefined> {

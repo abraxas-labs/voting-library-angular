@@ -26,9 +26,9 @@
   "COUNTING_CIRCLE_RESULT_STATE": {
     "1": "",
     "2": "in Erfassung",
-    "3": "zur Korrektur",
-    "4": "Erfassung beendet",
-    "5": "Korrektur beendet",
+    "3": "Zur Kontrolle",
+    "4": "übermittelt",
+    "5": "Kontrolle beendet",
     "6": "Vorläufig geprüft",
     "7": "Alles plausibilisiert"
   },

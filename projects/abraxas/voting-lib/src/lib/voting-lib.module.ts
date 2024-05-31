@@ -20,7 +20,6 @@ import { CommonModule, registerLocaleData } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import localeDeCh from '@angular/common/locales/de-CH';
 import { APP_INITIALIZER, ErrorHandler, LOCALE_ID, ModuleWithProviders, NgModule } from '@angular/core';
-import { MatMenuModule } from '@angular/material/menu';
 import { TranslateModule } from '@ngx-translate/core';
 import { ActionMenuItemComponent } from './components/action-menu-item/action-menu-item.component';
 import { ActionMenuComponent } from './components/action-menu/action-menu.component';
@@ -51,6 +50,8 @@ import { HttpAuthInterceptor } from './services/http/interceptors/http-auth.inte
 import { HttpTenantInterceptor } from './services/http/interceptors/http-tenant.interceptor';
 import { SecurityUtil } from './services/security.util';
 import { REST_API_URL, SEARCH_DEBOUNCE_TIME } from './tokens';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 import { HttpTokenRefreshInterceptor } from './services/http/interceptors/http-token-refresh.interceptor';
 import { GrpcTokenRefreshInterceptor } from './services/grpc/interceptors/grpc-token-refresh.interceptor';
 
@@ -93,6 +94,7 @@ const directives = [MousemoveOutsideDirective, MouseupOutsideDirective];
     TableModule,
     CheckboxModule,
     MatMenuModule,
+    MatDialogModule,
   ],
   exports: [...components, ...directives],
 })

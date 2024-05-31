@@ -6,7 +6,7 @@
 
 import { TreeNode } from './tree-node';
 
-export abstract class Tree<T> {
+export abstract class Tree<T extends {}> {
   public nodes: TreeNode<T>[];
 
   protected constructor(data?: T[]) {

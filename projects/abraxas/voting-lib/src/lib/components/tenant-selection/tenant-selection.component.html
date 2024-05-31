@@ -7,8 +7,10 @@
     [required]="true"
     [clearable]="false"
     displayExpr="name"
-    [value]="selectedTenantValue"
+    [focusOnLoad]="false"
+    [value]="this.selectedTenantValue?.name"
     (valueChange)="setSelectedTenant($event)"
     (filterValueChange)="searchTenants($event)"
+    [subscriptSizing]="'dynamic'"
   ></bc-autocomplete>
 </vo-lib-inline-spinner>

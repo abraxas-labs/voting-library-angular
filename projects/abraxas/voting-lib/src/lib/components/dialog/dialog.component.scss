@@ -11,6 +11,7 @@ $dialog-footer-height: 50px;
   flex-direction: column;
   height: 100%;
   position: relative;
+  margin: 1.5rem;
 
   .dialog-header {
     height: $dialog-header-height;
@@ -22,6 +23,7 @@ $dialog-footer-height: 50px;
 
     // max-height dialog - header - footer - padding - extra
     max-height: calc(90vh - #{$dialog-header-height} - #{$dialog-footer-height} - 48px - 10px);
+    max-width: 80vw;
     overflow-y: auto;
   }
 

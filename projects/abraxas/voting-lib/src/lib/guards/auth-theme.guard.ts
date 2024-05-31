@@ -5,14 +5,14 @@
  */
 
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AuthenticationConfig, IsAuthenticatedGuard } from '@abraxas/base-components';
 import { ThemeService } from '../services/theme.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthThemeGuard implements CanActivate {
+export class AuthThemeGuard {
   constructor(
     private readonly config: AuthenticationConfig,
     private readonly authGuard: IsAuthenticatedGuard,

@@ -5,7 +5,7 @@
  */
 
 import { AutocompleteComponent, Tenant, TenantService } from '@abraxas/base-components';
-import { Component, EventEmitter, Input, OnDestroy, Output, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, Output, ViewChild } from '@angular/core';
 import { from, Subject, Subscription } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
@@ -32,18 +32,18 @@ export class TenantSelectionComponent implements OnDestroy {
   public tenants: Tenant[] = [];
 
   private loadingTenantsSubscription: Subscription | undefined;
-
-  constructor(private readonly tenantService: TenantService) {}
+  constructor(private readonly tenantService: TenantService, private readonly ref: ChangeDetectorRef) {}
 
   @Input()
-  public set selectedTenant(v: Tenant | undefined) {
+  public set selectedTenant(v: Tenant) {
     this.selectedTenantValue = v;
     this.setTenantsAndEnsureSelected();
   }
 
-  public setSelectedTenant(v: Tenant | undefined): void {
-    this.selectedTenantValue = v;
-    this.selectedTenantChange.emit(v);
+  public setSelectedTenant(v: string): void {
+    this.selectedTenantValue = this.tenants.find(t => t.name === v);
+    this.ref.detectChanges();
+    this.selectedTenantChange.emit(this.selectedTenantValue);
   }
 
   public ngOnDestroy(): void {
