@@ -1,5 +1,5 @@
 /**
- * (c) Copyright 2024 by Abraxas Informatik AG
+ * (c) Copyright by Abraxas Informatik AG
  *
  * For license information see LICENSE file.
  */
@@ -15,7 +15,11 @@ export class TreeNode<T> {
   private childNodes: TreeNode<T>[] = [];
   private filteredChildNodesValue: TreeNode<T>[] = [];
 
-  constructor(public data: T, public displayName: string) {}
+  constructor(
+    public data: T,
+    public displayName: string,
+    public searchFn: (node: TreeNode<T>, upperSearchText: string) => boolean,
+  ) {}
 
   public get filteredChildNodes(): TreeNode<T>[] {
     return this.filteredChildNodesValue;
@@ -40,7 +44,7 @@ export class TreeNode<T> {
 
   public filter(upperSearchValue?: string): boolean {
     this.filteredChildNodesValue = this.childNodes.filter(cn => cn.filter(upperSearchValue));
-    return !upperSearchValue || this.displayName.toUpperCase().includes(upperSearchValue) || this.filteredChildNodesValue.length > 0;
+    return !upperSearchValue || this.searchFn(this, upperSearchValue) || this.filteredChildNodesValue.length > 0;
   }
 
   public countLeafs(): number {

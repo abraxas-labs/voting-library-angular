@@ -1,5 +1,5 @@
 /**
- * (c) Copyright 2024 by Abraxas Informatik AG
+ * (c) Copyright by Abraxas Informatik AG
  *
  * For license information see LICENSE file.
  */
@@ -23,7 +23,10 @@ const authorizationKey = 'Authorization';
   providedIn: 'root',
 })
 export class HttpTokenRefreshInterceptor implements HttpInterceptor {
-  constructor(private oauthService: OAuthService, @Inject(REST_API_URL) private readonly restApiUrl: string | undefined) {}
+  constructor(
+    private oauthService: OAuthService,
+    @Inject(REST_API_URL) private readonly restApiUrl: string | undefined,
+  ) {}
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (!this.restApiUrl || !req.url.includes(this.restApiUrl) || !!req.headers.get(authorizationKey)) {

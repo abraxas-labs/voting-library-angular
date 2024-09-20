@@ -1,5 +1,5 @@
 /**
- * (c) Copyright 2024 by Abraxas Informatik AG
+ * (c) Copyright by Abraxas Informatik AG
  *
  * For license information see LICENSE file.
  */
@@ -18,7 +18,10 @@ const accessTokenStorageField = 'access_token';
   providedIn: 'root',
 })
 export class HttpAuthInterceptor implements HttpInterceptor {
-  constructor(private readonly authStorage: AuthStorageService, @Inject(REST_API_URL) private readonly restApiUrl: string | undefined) {}
+  constructor(
+    private readonly authStorage: AuthStorageService,
+    @Inject(REST_API_URL) private readonly restApiUrl: string | undefined,
+  ) {}
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (!this.restApiUrl || !req.url.includes(this.restApiUrl) || !!req.headers.get(authorizationKey)) {

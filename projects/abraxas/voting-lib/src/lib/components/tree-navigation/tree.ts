@@ -1,5 +1,5 @@
 /**
- * (c) Copyright 2024 by Abraxas Informatik AG
+ * (c) Copyright by Abraxas Informatik AG
  *
  * For license information see LICENSE file.
  */
@@ -47,6 +47,10 @@ export abstract class Tree<T extends {}> {
 
   protected abstract getChildren(node: T): T[] | undefined;
 
+  protected matches(node: TreeNode<T>, upperSearchValue: string): boolean {
+    return node.displayName.toUpperCase().includes(upperSearchValue);
+  }
+
   private buildTree(data?: T[]): TreeNode<T>[] {
     if (!data) {
       return [];
@@ -56,7 +60,7 @@ export abstract class Tree<T extends {}> {
   }
 
   private buildTreeSingle(data: T): TreeNode<T> {
-    const newNode = new TreeNode<T>(data, this.buildDisplayName(data));
+    const newNode = new TreeNode<T>(data, this.buildDisplayName(data), this.matches);
 
     for (const item of this.buildTree(this.getChildren(data))) {
       newNode.addChildNode(item);

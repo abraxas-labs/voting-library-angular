@@ -1,12 +1,12 @@
 /**
- * (c) Copyright 2024 by Abraxas Informatik AG
+ * (c) Copyright by Abraxas Informatik AG
  *
  * For license information see LICENSE file.
  */
 
 import { Inject, Injectable } from '@angular/core';
 import { ClientReadableStream, Metadata } from 'grpc-web';
-import { firstValueFrom, from, Observable } from 'rxjs';
+import { firstValueFrom, from, mergeMap, Observable, of } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import {
   GrpcClientStreamingRequestFn,
@@ -36,7 +36,7 @@ export class GrpcBackendService {
     metadata: Metadata = {},
   ): Observable<TResp> {
     const wrappedFn = this.wrapServerStreamingRequestFn(requestFn);
-    return this.buildChain(wrappedFn).handle(request, metadata);
+    return this.call(wrappedFn, request, metadata);
   }
 
   public runClientStreamingRequest<TReq, TResp>(
@@ -45,7 +45,13 @@ export class GrpcBackendService {
     metadata: Metadata = {},
   ): Observable<TResp> {
     const wrappedFn = this.wrapClientStreamingRequestFn(requestFn);
-    return this.buildChain(wrappedFn).handle(request, metadata);
+    return this.call(wrappedFn, request, metadata);
+  }
+
+  private call<TReq, TResp>(grpcFn: GrpcRequestFn<TReq, TResp>, request: TReq, metadata: Metadata): Observable<TResp> {
+    // We need to create an observable early and pipe the gRPC handler through it
+    // This way, when doing retries, the whole "process" including gRPC interceptors is retried
+    return of(this.buildChain(grpcFn)).pipe(mergeMap(grpcHandler => grpcHandler.handle(request, metadata)));
   }
 
   private wrapUnaryRequestFn<TReq, TResp>(requestFn: GrpcUnaryRequestFn<TReq, TResp>): GrpcRequestFn<TReq, TResp> {

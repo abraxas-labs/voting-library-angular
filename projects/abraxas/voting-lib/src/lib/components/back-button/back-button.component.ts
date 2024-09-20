@@ -1,5 +1,5 @@
 /**
- * (c) Copyright 2024 by Abraxas Informatik AG
+ * (c) Copyright by Abraxas Informatik AG
  *
  * For license information see LICENSE file.
  */
@@ -16,7 +16,10 @@ export class BackButtonComponent {
   @Input()
   public navigateCommands: any[] = [];
 
-  constructor(private readonly router: Router, private readonly route: ActivatedRoute) {}
+  constructor(
+    private readonly router: Router,
+    private readonly route: ActivatedRoute,
+  ) {}
 
   public async back(): Promise<void> {
     await this.router.navigate(!!this.navigateCommands && !!this.navigateCommands.length ? this.navigateCommands : ['..'], {

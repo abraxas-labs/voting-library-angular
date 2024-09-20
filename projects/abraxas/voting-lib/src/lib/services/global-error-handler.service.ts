@@ -1,5 +1,5 @@
 /**
- * (c) Copyright 2024 by Abraxas Informatik AG
+ * (c) Copyright by Abraxas Informatik AG
  *
  * For license information see LICENSE file.
  */
@@ -16,7 +16,10 @@ const ERROR_TYPE_SEPARATOR = ':';
   providedIn: 'root',
 })
 export class GlobalErrorHandler implements ErrorHandler {
-  constructor(private readonly errorToast: ErrorToastUtil, private readonly zone: NgZone) {}
+  constructor(
+    private readonly errorToast: ErrorToastUtil,
+    private readonly zone: NgZone,
+  ) {}
 
   public handleError(error: any): void {
     if (error.promise && error.rejection) {

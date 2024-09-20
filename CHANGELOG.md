@@ -1,4 +1,4 @@
-# ✨ Changelog (`v4.0.1`)
+# ✨ Changelog (`v5.1.2`)
 
 All notable changes to this project will be documented in this file.
 
@@ -8,11 +8,46 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Info
 
 ```text
-This version -------- v4.0.1
-Previous version ---- v3.0.4
+This version -------- v5.1.2
+Previous version ---- v4.0.1
 Initial version ----- v1.28.0
-Total commits ------- 3
+Total commits ------- 7
 ```
+
+## [v5.1.2] - 2024-09-04
+
+### 🔄 Changed
+
+- change font-family from Helvetica to Roboto in sg-theming
+
+## [v5.1.1] - 2024-08-27
+
+### :arrows_counterclockwise: Changed
+
+- update bug bounty template reference
+- patch ci-cd template version, align with new defaults
+
+## [v5.1.0] - 2024-08-14
+
+### :arrows_counterclockwise: Changed
+
+- make tree navigation search customizable
+
+## [v5.0.0] - 2024-07-10
+
+BREAKING CHANGE: angular 18 update
+
+## [v4.1.0] - 2024-06-19
+
+### 🆕 Added
+
+- add truncate long sortable table header style
+
+## [v4.0.2] - 2024-06-06
+
+### :arrows_counterclockwise: Changed
+
+- correctly send access token on failure
 
 ## [v4.0.1] - 2024-05-27
 

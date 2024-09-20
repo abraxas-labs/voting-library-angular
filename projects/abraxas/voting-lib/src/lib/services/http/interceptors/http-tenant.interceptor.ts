@@ -1,5 +1,5 @@
 /**
- * (c) Copyright 2024 by Abraxas Informatik AG
+ * (c) Copyright by Abraxas Informatik AG
  *
  * For license information see LICENSE file.
  */
@@ -17,7 +17,10 @@ const tenantKey = 'x-tenant';
   providedIn: 'root',
 })
 export class HttpTenantInterceptor implements HttpInterceptor {
-  constructor(private readonly authService: AuthorizationService, @Inject(REST_API_URL) private readonly restApiUrl: string | undefined) {}
+  constructor(
+    private readonly authService: AuthorizationService,
+    @Inject(REST_API_URL) private readonly restApiUrl: string | undefined,
+  ) {}
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (!this.restApiUrl || !req.url.includes(this.restApiUrl) || !!req.headers.get(tenantKey)) {

@@ -1,5 +1,5 @@
 /**
- * (c) Copyright 2024 by Abraxas Informatik AG
+ * (c) Copyright by Abraxas Informatik AG
  *
  * For license information see LICENSE file.
  */
@@ -32,7 +32,10 @@ export class TenantSelectionComponent implements OnDestroy {
   public tenants: Tenant[] = [];
 
   private loadingTenantsSubscription: Subscription | undefined;
-  constructor(private readonly tenantService: TenantService, private readonly ref: ChangeDetectorRef) {}
+  constructor(
+    private readonly tenantService: TenantService,
+    private readonly ref: ChangeDetectorRef,
+  ) {}
 
   @Input()
   public set selectedTenant(v: Tenant) {

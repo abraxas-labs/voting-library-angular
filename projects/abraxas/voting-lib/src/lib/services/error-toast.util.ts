@@ -1,5 +1,5 @@
 /**
- * (c) Copyright 2024 by Abraxas Informatik AG
+ * (c) Copyright by Abraxas Informatik AG
  *
  * For license information see LICENSE file.
  */
@@ -12,7 +12,10 @@ import { SnackbarService } from './snackbar.service';
   providedIn: 'root',
 })
 export class ErrorToastUtil {
-  constructor(private readonly i18n: TranslateService, private readonly snackbarService: SnackbarService) {}
+  constructor(
+    private readonly i18n: TranslateService,
+    private readonly snackbarService: SnackbarService,
+  ) {}
 
   public toastError(code: number, errorType: string): void {
     const params = { detail: `Code: ${code ?? ''}` };

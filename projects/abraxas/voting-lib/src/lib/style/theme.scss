@@ -21,6 +21,6 @@
     ),
   );
 
-  @include theming.bc-theme($sg-palette, 'Helvetica');
+  @include theming.bc-theme($sg-palette, 'Roboto');
   @include color.theme-colors($sg-palette);
 }
