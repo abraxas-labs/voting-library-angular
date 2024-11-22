@@ -1,4 +1,4 @@
-# ✨ Changelog (`v5.1.2`)
+# ✨ Changelog (`v5.1.4`)
 
 All notable changes to this project will be documented in this file.
 
@@ -8,11 +8,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Info
 
 ```text
-This version -------- v5.1.2
-Previous version ---- v4.0.1
+This version -------- v5.1.4
+Previous version ---- v5.1.2
 Initial version ----- v1.28.0
-Total commits ------- 7
+Total commits ------- 2
 ```
+
+## [v5.1.4] - 2024-11-08
+
+### 🔄 Changed
+
+- revert adjust dialog content height to remove scrollbar
+
+## [v5.1.3] - 2024-11-07
+
+### 🔄 Changed
+
+- adjust dialog content height to remove scrollbar
 
 ## [v5.1.2] - 2024-09-04
 
