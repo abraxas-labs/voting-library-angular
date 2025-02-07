@@ -1,4 +1,4 @@
-# ✨ Changelog (`v5.1.4`)
+# ✨ Changelog (`v5.2.0`)
 
 All notable changes to this project will be documented in this file.
 
@@ -8,11 +8,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Info
 
 ```text
-This version -------- v5.1.4
-Previous version ---- v5.1.2
+This version -------- v5.2.0
+Previous version ---- v5.1.4
 Initial version ----- v1.28.0
 Total commits ------- 2
 ```
+
+## [v5.2.0] - 2025-01-07
+
+### 🆕 Added
+
+- add noindex and nofollow robots meta tag to error pages
+
+## [v5.1.5] - 2024-12-11
+
+### 🔄 Changed
+
+- readonly form fields
 
 ## [v5.1.4] - 2024-11-08
 

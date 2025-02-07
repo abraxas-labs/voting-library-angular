@@ -18,7 +18,7 @@ export class TenantSelectionComponent implements OnDestroy {
   public label: string = '';
 
   @Input()
-  public disabled: boolean = false;
+  public readonly: boolean = false;
 
   @Output()
   public selectedTenantChange: EventEmitter<Tenant> = new EventEmitter<Tenant>();
