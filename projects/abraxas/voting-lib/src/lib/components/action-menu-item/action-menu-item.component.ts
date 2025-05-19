@@ -10,6 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   selector: 'vo-lib-action-menu-item',
   templateUrl: './action-menu-item.component.html',
   styleUrls: [],
+  standalone: false,
 })
 export class ActionMenuItemComponent {
   @Input()

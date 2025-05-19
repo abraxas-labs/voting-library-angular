@@ -10,6 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   selector: 'vo-lib-icon-text',
   templateUrl: './icon-text.component.html',
   styleUrls: ['./icon-text.component.scss'],
+  standalone: false,
 })
 export class IconTextComponent {
   @Input()

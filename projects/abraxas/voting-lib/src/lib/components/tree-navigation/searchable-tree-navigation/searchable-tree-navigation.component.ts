@@ -14,6 +14,7 @@ import { TreeNode } from '../tree-node';
   selector: 'vo-lib-searchable-tree-navigation',
   templateUrl: './searchable-tree-navigation.component.html',
   styleUrls: ['./searchable-tree-navigation.component.scss'],
+  standalone: false,
 })
 export class SearchableTreeNavigationComponent<T> implements OnInit, OnDestroy {
   @Input()

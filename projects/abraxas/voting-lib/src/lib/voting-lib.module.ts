@@ -15,6 +15,8 @@ import {
   SpinnerModule,
   StatusLabelModule,
   TableModule,
+  TooltipModule,
+  ValidationMessagesIntl,
 } from '@abraxas/base-components';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -54,6 +56,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HttpTokenRefreshInterceptor } from './services/http/interceptors/http-token-refresh.interceptor';
 import { GrpcTokenRefreshInterceptor } from './services/grpc/interceptors/grpc-token-refresh.interceptor';
+import { GrpcLanguageInterceptor } from './services/grpc/interceptors/grpc-language.interceptor';
+import { HttpLanguageInterceptor } from './services/http/interceptors/http-language.interceptor';
+import { ValidationMessagesProvider } from './services/validiation-messages.provider';
 
 registerLocaleData(localeDeCh);
 
@@ -95,6 +100,7 @@ const directives = [MousemoveOutsideDirective, MouseupOutsideDirective];
     CheckboxModule,
     MatMenuModule,
     MatDialogModule,
+    TooltipModule,
   ],
   exports: [...components, ...directives],
 })
@@ -124,6 +130,11 @@ export class VotingLibModule {
           useClass: GrpcTenantInterceptor,
         },
         {
+          provide: GRPC_INTERCEPTORS,
+          multi: true,
+          useClass: GrpcLanguageInterceptor,
+        },
+        {
           provide: REST_API_URL,
           useValue: restApiUrl,
         },
@@ -148,6 +159,11 @@ export class VotingLibModule {
           useClass: HttpTenantInterceptor,
         },
         {
+          provide: HTTP_INTERCEPTORS,
+          multi: true,
+          useClass: HttpLanguageInterceptor,
+        },
+        {
           provide: SEARCH_DEBOUNCE_TIME,
           useValue: 300,
         },
@@ -163,6 +179,10 @@ export class VotingLibModule {
           provide: APP_INITIALIZER,
           useValue: SecurityUtil.patchWindowOpen,
           multi: true,
+        },
+        {
+          provide: ValidationMessagesIntl,
+          useClass: ValidationMessagesProvider,
         },
       ],
     };

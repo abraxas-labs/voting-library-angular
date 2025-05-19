@@ -13,6 +13,7 @@ export const ENV_INJECTION_TOKEN: InjectionToken<string> = new InjectionToken<st
   selector: 'vo-lib-environment-chip',
   templateUrl: './environment-chip.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class EnvironmentChipComponent {
   public readonly color: string;

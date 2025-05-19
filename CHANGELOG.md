@@ -1,4 +1,4 @@
-# ✨ Changelog (`v5.2.0`)
+# ✨ Changelog (`v5.4.4`)
 
 All notable changes to this project will be documented in this file.
 
@@ -8,11 +8,53 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Info
 
 ```text
-This version -------- v5.2.0
-Previous version ---- v5.1.4
+This version -------- v5.4.4
+Previous version ---- v5.2.0
 Initial version ----- v1.28.0
-Total commits ------- 2
+Total commits ------- 7
 ```
+
+## [v5.4.4] - 2025-04-01
+
+### 🔒 Security
+
+- harden regex to prevent potential DoS vulnerability caused by super-linear runtime due to excessive backtracking.
+
+## [v5.4.3] - 2025-03-12
+
+### 🔄 Changed
+
+- fix tenant selection after bc update
+
+## [v5.4.2] - 2025-03-05
+
+### 🔄 Changed
+
+- fix retry forever with backoff typing
+
+## [v5.4.1] - 2025-02-20
+
+### 🆕 Added
+
+- add primary color 25
+
+## [v5.4.0] - 2025-02-19
+
+### 🆕 Added
+
+- add form validation
+
+## [v5.3.1] - 2025-02-14
+
+### 🔄 Changed
+
+- update node version
+
+## [v5.3.0] - 2025-02-13
+
+### 🔄 Changed
+
+- angular 19 update
 
 ## [v5.2.0] - 2025-01-07
 
@@ -93,119 +135,11 @@ BREAKING CHANGE: angular 17 update
 
 - counting circle result state descriptions
 
-### 🆕 Added
-
-- add save icon to button bar
-
-### 🆕 Added
-
-- add grpc token refresh interceptor to handle manual token refresh
-- add http token refresh interceptor to handle manual token refresh
-- add new release job for continuous development allowing intermediate version patches.
-
-### :arrows_counterclockwise: Changed
-
-- improved gRPC streaming retry handling
-
-### 🆕 Added
-
-- add error message for unknown grpc status
-
-### 🆕 Added
-
-- add error message for unknown grpc status
-
-BREAKING CHANGE: update to Angular 14 version
-
-### 🔄 Changed
-
-- Angular Update to version 14
-
-## [v2.6.5] - 2024-04-16
-
-### 🆕 Added
-
-- add save icon to button bar
-
-### 🆕 Added
-
-- add grpc token refresh interceptor to handle manual token refresh
-- add http token refresh interceptor to handle manual token refresh
-- add new release job for continuous development allowing intermediate version patches.
-
-### :arrows_counterclockwise: Changed
-
-- improved gRPC streaming retry handling
-
-### 🆕 Added
-
-- add error message for unknown grpc status
-
-### 🆕 Added
-
-- add error message for unknown grpc status
-
-BREAKING CHANGE: update to Angular 14 version
-
-### 🔄 Changed
-
-- Angular Update to version 14
-
 ## [v3.0.4] - 2024-02-21
 
 ### 🆕 Added
 
 - add save icon to button bar
-
-### 🆕 Added
-
-- add grpc token refresh interceptor to handle manual token refresh
-- add http token refresh interceptor to handle manual token refresh
-- add new release job for continuous development allowing intermediate version patches.
-
-### :arrows_counterclockwise: Changed
-
-- improved gRPC streaming retry handling
-
-### 🆕 Added
-
-- add error message for unknown grpc status
-
-### 🆕 Added
-
-- add error message for unknown grpc status
-
-BREAKING CHANGE: update to Angular 14 version
-
-### 🔄 Changed
-
-- Angular Update to version 14
-
-## [v2.6.4] - 2024-02-21
-
-### 🆕 Added
-
-- add grpc token refresh interceptor to handle manual token refresh
-- add http token refresh interceptor to handle manual token refresh
-- add new release job for continuous development allowing intermediate version patches.
-
-### :arrows_counterclockwise: Changed
-
-- improved gRPC streaming retry handling
-
-### 🆕 Added
-
-- add error message for unknown grpc status
-
-### 🆕 Added
-
-- add error message for unknown grpc status
-
-BREAKING CHANGE: update to Angular 14 version
-
-### 🔄 Changed
-
-- Angular Update to version 14
 
 ## [v3.0.3] - 2024-02-02
 
@@ -215,85 +149,11 @@ BREAKING CHANGE: update to Angular 14 version
 - add http token refresh interceptor to handle manual token refresh
 - add new release job for continuous development allowing intermediate version patches.
 
-### :arrows_counterclockwise: Changed
-
-- improved gRPC streaming retry handling
-
-### 🆕 Added
-
-- add error message for unknown grpc status
-
-### 🆕 Added
-
-- add error message for unknown grpc status
-
-BREAKING CHANGE: update to Angular 14 version
-
-### 🔄 Changed
-
-- Angular Update to version 14
-
-## [v2.6.3] - 2024-02-02
-
-### 🔄 Changed
-
-- add grpc and http interceptors to handle manual token refresh
-
-## [v2.6.2] - 2023-11-16
-
-### :arrows_counterclockwise: Changed
-
-- improved gRPC streaming retry handling
-
-### 🆕 Added
-
-- add error message for unknown grpc status
-
-### 🆕 Added
-
-- add error message for unknown grpc status
-
-BREAKING CHANGE: update to Angular 14 version
-
-### 🔄 Changed
-
-- Angular Update to version 14
-
 ## [v3.0.2] - 2023-11-16
 
 ### :arrows_counterclockwise: Changed
 
 - improved gRPC streaming retry handling
-
-### 🆕 Added
-
-- add error message for unknown grpc status
-
-### 🆕 Added
-
-- add error message for unknown grpc status
-
-BREAKING CHANGE: update to Angular 14 version
-
-### 🔄 Changed
-
-- Angular Update to version 14
-
-## [v2.6.1] - 2023-10-20
-
-### 🆕 Added
-
-- add error message for unknown grpc status
-
-### 🆕 Added
-
-- add error message for unknown grpc status
-
-BREAKING CHANGE: update to Angular 14 version
-
-### 🔄 Changed
-
-- Angular Update to version 14
 
 ## [v3.0.1] - 2023-10-20
 
@@ -387,32 +247,135 @@ BREAKING CHANGE: update to Angular 14 version
 
 ## [v2.0.1] - 2022-07-25
 
+### 🔒 Security
+
+- harden regex to prevent potential DoS vulnerability caused by super-linear runtime due to excessive backtracking.
+
 ### 🔄 Changed
 
-- add build production config
+- fix tenant selection after bc update
 
-## [v2.0.0] - 2022-07-25
+### 🔄 Changed
 
-BREAKING CHANGE: updated angular to v13 and updated to the new base components
-
-## [v1.29.0] - 2022-07-18
+- fix retry forever with backoff typing
 
 ### 🆕 Added
 
-- add outdated browser warning page
-
-## [v1.28.2] - 2022-05-30
+- add primary color 25
 
 ### 🆕 Added
 
-- add confirm dialog component to public api
+- add form validation
 
-## [v1.28.1] - 2022-05-30
+### 🔄 Changed
+
+- update node version
+
+### 🔄 Changed
+
+- angular 19 update
 
 ### 🆕 Added
 
-- set focus for button bar component
+- add noindex and nofollow robots meta tag to error pages
 
-## [v1.28.0] - 2022-05-09
+### 🔄 Changed
 
-### 🎉 Initial release for Bug Bounty
+- readonly form fields
+
+### 🔄 Changed
+
+- revert adjust dialog content height to remove scrollbar
+
+### 🔄 Changed
+
+- adjust dialog content height to remove scrollbar
+
+### 🔄 Changed
+
+- change font-family from Helvetica to Roboto in sg-theming
+
+### :arrows_counterclockwise: Changed
+
+- update bug bounty template reference
+- patch ci-cd template version, align with new defaults
+
+### :arrows_counterclockwise: Changed
+
+- make tree navigation search customizable
+
+BREAKING CHANGE: angular 18 update
+
+### 🆕 Added
+
+- add truncate long sortable table header style
+
+### :arrows_counterclockwise: Changed
+
+- correctly send access token on failure
+
+### 🔄 Changed
+
+- change plausibilisiert state color
+
+BREAKING CHANGE: angular 17 update
+
+### 🔄 Changed
+
+- angular 17 update
+
+### 🔄 Changed
+
+- counting circle result state descriptions
+
+### 🆕 Added
+
+- add save icon to button bar
+
+### 🆕 Added
+
+- add grpc token refresh interceptor to handle manual token refresh
+- add http token refresh interceptor to handle manual token refresh
+- add new release job for continuous development allowing intermediate version patches.
+
+### :arrows_counterclockwise: Changed
+
+- improved gRPC streaming retry handling
+
+### 🆕 Added
+
+- add error message for unknown grpc status
+
+BREAKING CHANGE: update to Angular 14 version
+
+### 🔄 Changed
+
+- Angular Update to version 14
+
+### 🆕 Added
+
+- add domain of influence canton
+
+### 🔄 Changed
+
+- change white labeling logo from png to svg
+
+### 🆕 Added
+
+- add whitelabeling Logo sg
+
+### 🔄 Changed
+
+- optimised white labling to not overwrite base components styles
+
+### 🆕 Added
+
+- Added support for white-labling
+
+### 🔒 Security
+
+- Updated vulnerable dependencies
+
+### 🔄 Changed
+
+- Clean up code smells

@@ -10,6 +10,7 @@ import { Component, EventEmitter, Input, Output, TemplateRef } from '@angular/co
   selector: 'vo-lib-page',
   templateUrl: './page.component.html',
   styleUrls: ['./page.component.scss'],
+  standalone: false,
 })
 export class PageComponent {
   @Input()

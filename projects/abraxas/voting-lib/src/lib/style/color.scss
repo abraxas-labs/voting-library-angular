@@ -11,6 +11,7 @@
 $color-primary: theme-color('primary');
 
 $color-primary-10: theme-color('primary-10');
+$color-primary-25: theme-color('primary-25');
 $color-primary-50: theme-color('primary-50');
 $color-primary-70: theme-color('primary-70');
 $color-primary-75: theme-color('primary-75');
@@ -41,6 +42,7 @@ $color-info-25: theme-color('info-25');
 
   --color-primary: #{$theme-color-primary};
   --color-primary-10: #{settings.tint($theme-color-primary, 10%)};
+  --color-primary-25: #{settings.tint($theme-color-primary, 25%)};
   --color-primary-50: #{settings.tint($theme-color-primary, 50%)};
   --color-primary-70: #{settings.tint($theme-color-primary, 70%)};
   --color-primary-75: #{settings.tint($theme-color-primary, 75%)};

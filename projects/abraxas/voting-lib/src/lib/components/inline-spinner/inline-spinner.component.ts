@@ -11,6 +11,7 @@ import { Component, Input } from '@angular/core';
   selector: 'vo-lib-inline-spinner',
   templateUrl: './inline-spinner.component.html',
   styleUrls: ['./inline-spinner.component.scss'],
+  standalone: false,
 })
 export class InlineSpinnerComponent {
   @Input()

@@ -12,6 +12,7 @@ import { finalize } from 'rxjs/operators';
 @Component({
   selector: 'vo-lib-tenant-selection',
   templateUrl: './tenant-selection.component.html',
+  standalone: false,
 })
 export class TenantSelectionComponent implements OnDestroy {
   @Input()

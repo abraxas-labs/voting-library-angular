@@ -8,6 +8,7 @@ import { Directive, ElementRef, EventEmitter, HostListener, Output } from '@angu
 
 @Directive({
   selector: '[voLibMousemoveOutside]',
+  standalone: false,
 })
 // Copied from base components, since the directive is not exported
 // https://gitlab.abraxas-tools.ch/abraxas/customapps/libraries/angular/base-components/-/blob/master/projects/

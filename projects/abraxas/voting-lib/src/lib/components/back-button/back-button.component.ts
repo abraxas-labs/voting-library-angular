@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'vo-lib-back-button',
   templateUrl: './back-button.component.html',
   styleUrls: ['./back-button.component.scss'],
+  standalone: false,
 })
 export class BackButtonComponent {
   @Input()

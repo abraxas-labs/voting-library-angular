@@ -92,5 +92,17 @@
     "403": {
       "MESSAGE": "Zugriff verweigert."
     }
+  },
+  "VALIDATION_MESSAGES": {
+    "phone": "Bitte geben Sie eine gültige Telefonnummer ein, optional beginnend mit '+', bestehend aus 7 bis 14 Ziffern; Leerzeichen sind erlaubt.",
+    "numeric": "Bitte geben Sie nur Zahlen ein.",
+    "alpha": "Bitte geben Sie nur Buchstaben ein.",
+    "alphaWhite": "Bitte geben Sie nur Buchstaben und Leerzeichen ein.",
+    "alphaNumWhite": "Bitte geben Sie nur Buchstaben, Zahlen und Leerzeichen ein.",
+    "simpleSlText": "Bitte geben Sie einen einzeiligen, einfachen Text ein (nur Buchstaben, Zahlen, Leerzeichen, Punkte, Apostrophe und Bindestriche).",
+    "simpleMlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen, Punkte, Apostrophe, Bindestriche und Zeilenumbrüche enthält.",
+    "complexSlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen und die folgenden Symbole enthält: _ ! ? + - @ , . : ' ( ) / — \" « » ; & – ` ´ ’ ‘ * % =",
+    "complexMlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen, Zeilenumbrüche und die folgenden Symbole enthält: _ ! ? + - @ , . : ' ( ) / — \" « » ; & – ` ´ ’ ‘ * % =",
+    "untrimmed": "Bitte entfernen Sie führende oder nachgestellte Leerzeichen."
   }
 }

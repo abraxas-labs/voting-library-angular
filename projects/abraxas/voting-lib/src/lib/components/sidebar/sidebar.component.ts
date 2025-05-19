@@ -23,6 +23,7 @@ const defaultSidebarWidth = '20rem';
       state('close', style({ width: '0' })),
     ]),
   ],
+  standalone: false,
 })
 export class SidebarComponent {
   @Input()

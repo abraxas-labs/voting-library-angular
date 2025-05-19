@@ -10,5 +10,6 @@ import { Component } from '@angular/core';
   selector: 'vo-lib-page-header',
   templateUrl: './page-header.component.html',
   styleUrls: ['./page-header.component.scss'],
+  standalone: false,
 })
 export class PageHeaderComponent {}

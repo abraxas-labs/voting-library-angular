@@ -10,6 +10,7 @@ import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular
   selector: 'vo-lib-split-screen',
   templateUrl: './split-screen.component.html',
   styleUrls: ['./split-screen.component.scss'],
+  standalone: false,
 })
 export class SplitScreenComponent implements AfterViewInit {
   @Input() public orientation: 'vertical' | 'horizontal' = 'horizontal';

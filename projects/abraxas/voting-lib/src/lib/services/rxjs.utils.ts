@@ -10,17 +10,17 @@ import { retry, tap } from 'rxjs/operators';
 const waitTime = 200;
 const maxWaitTime = 30000; // 30 seconds
 
-export function retryForeverWithBackoff<T>(onRetry?: () => {}): OperatorFunction<T, T> {
+export function retryForeverWithBackoff<T>(onRetry?: () => void): OperatorFunction<T, T> {
   return (src: Observable<T>) =>
     defer(() => {
       // retry on failure after timeout
       return src.pipe(
         retry({
-          delay: (error, retryCount) => {
+          delay: (_, retryCount) => {
             const retryIn = getWaitTime(retryCount);
             return timer(retryIn).pipe(
               tap(() => {
-                if (onRetry) {
+                if (onRetry !== undefined) {
                   onRetry();
                 }
               }),

@@ -11,6 +11,7 @@ import { TreeNode } from './tree-node';
   selector: 'vo-lib-tree-navigation',
   templateUrl: './tree-navigation.component.html',
   styleUrls: ['./tree-navigation.component.scss'],
+  standalone: false,
 })
 export class TreeNavigationComponent<T> {
   @Input()

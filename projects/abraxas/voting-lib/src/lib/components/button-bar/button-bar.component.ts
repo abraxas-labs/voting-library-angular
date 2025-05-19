@@ -11,6 +11,7 @@ import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core
   selector: 'vo-lib-button-bar',
   templateUrl: './button-bar.component.html',
   styleUrls: ['./button-bar.component.scss'],
+  standalone: false,
 })
 export class ButtonBarComponent {
   @Input()
@@ -35,10 +36,14 @@ export class ButtonBarComponent {
   public cancelLabel?: string;
 
   @Output()
+  // eslint-disable-next-line @angular-eslint/no-output-native
   public cancel: EventEmitter<void> = new EventEmitter<void>();
 
   @Output()
   public save: EventEmitter<void> = new EventEmitter<void>();
+
+  @Input()
+  public hintLabel?: string;
 
   @Input()
   public sticky: boolean = true;

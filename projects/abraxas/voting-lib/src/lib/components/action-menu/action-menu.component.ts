@@ -10,5 +10,6 @@ import { Component } from '@angular/core';
   selector: 'vo-lib-action-menu',
   templateUrl: './action-menu.component.html',
   styleUrls: ['./action-menu.component.scss'],
+  standalone: false,
 })
 export class ActionMenuComponent {}
