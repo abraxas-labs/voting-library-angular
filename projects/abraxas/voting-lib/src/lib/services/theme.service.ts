@@ -29,16 +29,19 @@ export class ThemeService {
     this.renderer = rendererFactory.createRenderer(null, null);
   }
 
-  public setTheme(theme: string): string {
+  public trySetTheme(theme: string): boolean {
     // No theme was explicitly set. Try to load the last used theme
     if (theme === ThemeService.NoTheme) {
       theme = localStorage.getItem(storageKey) ?? defaultTheme;
     }
 
+    let result = true;
+
     // Unknown themes should just use the default theme, otherwise no colors etc. would be displayed
     if (!supportedThemes.includes(theme)) {
       console.error(`Theme ${theme} is not a supported theme.`);
       theme = defaultTheme;
+      result = false;
     }
 
     if (theme !== this.theme$.value) {
@@ -52,6 +55,11 @@ export class ThemeService {
       }
     }
 
-    return theme;
+    return result;
+  }
+
+  public setTheme(theme: string): string {
+    this.trySetTheme(theme);
+    return this.theme$.value!;
   }
 }

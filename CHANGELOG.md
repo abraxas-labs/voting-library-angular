@@ -1,4 +1,4 @@
-# ✨ Changelog (`v5.4.4`)
+# ✨ Changelog (`v5.9.0`)
 
 All notable changes to this project will be documented in this file.
 
@@ -8,11 +8,65 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Info
 
 ```text
-This version -------- v5.4.4
-Previous version ---- v5.2.0
+This version -------- v5.9.0
+Previous version ---- v5.4.4
 Initial version ----- v1.28.0
-Total commits ------- 7
+Total commits ------- 9
 ```
+
+## [v5.9.0] - 2025-07-28
+
+### 🔄 Changed
+
+- use bc-alert for snackbar errors
+
+## [v5.8.0] - 2025-07-14
+
+### 🔄 Changed
+
+- add generic error code url handling
+
+## [v5.7.1] - 2025-07-11
+
+### 🔄 Changed
+
+- bump BC version
+
+## [v5.7.0] - 2025-07-08
+
+### 🔄 Changed
+
+- bump BC version
+
+## [v5.6.1] - 2025-06-12
+
+### :arrows_counterclockwise: Changed
+
+- extend complex single-/multiline validator with paragraph sign `§`
+
+## [v5.6.0] - 2025-06-05
+
+### 🆕 Added
+
+- feat(VOTING-5894): not found page
+
+## [v5.5.1] - 2025-05-28
+
+### 🆕 Added
+
+- add primary-20 color
+
+## [v5.5.0] - 2025-05-21
+
+### 🔄 Changed
+
+- generic error handler
+
+## [v5.4.5] - 2025-05-21
+
+### 🔄 Changed
+
+- allow " in complex ml text
 
 ## [v5.4.4] - 2025-04-01
 
@@ -215,37 +269,19 @@ BREAKING CHANGE: update to Angular 14 version
 
 ### 🔄 Changed
 
-- optimised white labling to not overwrite base components styles
+- bump BC version
 
-## [v2.2.1] - 2022-08-31
+### :arrows_counterclockwise: Changed
 
-### 🔄 Changed
-
-- interpolate theme color assignment to css variables
-
-## [v2.2.0] - 2022-08-31
+- extend complex single-/multiline validator with paragraph sign `§`
 
 ### 🆕 Added
 
-- Added support for white-labling
+- feat(VOTING-5894): not found page
 
-## [v2.1.1] - 2022-08-23
+### 🆕 Added
 
-### 🔒 Security
-
-- Updated vulnerable dependencies
-
-### 🔄 Changed
-
-- Clean up code smells
-
-## [v2.1.0] - 2022-08-11
-
-### 🔄 Changed
-
-- update base components
-
-## [v2.0.1] - 2022-07-25
+- add primary-20 color
 
 ### 🔒 Security
 
@@ -363,19 +399,3 @@ BREAKING CHANGE: update to Angular 14 version
 ### 🆕 Added
 
 - add whitelabeling Logo sg
-
-### 🔄 Changed
-
-- optimised white labling to not overwrite base components styles
-
-### 🆕 Added
-
-- Added support for white-labling
-
-### 🔒 Security
-
-- Updated vulnerable dependencies
-
-### 🔄 Changed
-
-- Clean up code smells

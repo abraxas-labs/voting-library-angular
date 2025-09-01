@@ -12,8 +12,8 @@ import { switchMap } from 'rxjs/operators';
 export class AsyncInputValidators {
   public static simpleSlTextRegex: RegExp = /^[\p{L}\p{M}\p{Nd} .'-]+$/u;
   public static simpleMlTextRegex: RegExp = /^[\p{L}\p{M}\p{Nd} .'\-\r\n]+$/u;
-  public static complexSlTextRegex: RegExp = /^[\p{L}\p{M}\p{Nd} _!?+\-@,\.:'()\/—'«»;&–`´’‘+*%=]+$/u;
-  public static complexMlTextRegex: RegExp = /^[\p{L}\p{M}\p{Nd}\r\n _!?+\-@,\.:'()\/—'«»;&–`´’‘+*%=]+$/u;
+  public static complexSlTextRegex: RegExp = /^[\p{L}\p{M}\p{Nd} _!?+\-@,\.:'()\/—'«»;&–`´’‘+*%=§]+$/u;
+  public static complexMlTextRegex: RegExp = /^[\p{L}\p{M}\p{Nd}\r\n _!?+\-@,\.:'()\/—'"«»;&–`´’‘+*%=§]+$/u;
   public static untrimmedRegex: RegExp = /(^\s)|(\s$)/;
 
   private static validationDebounce: number = 500;

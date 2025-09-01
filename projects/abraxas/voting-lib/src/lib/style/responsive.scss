@@ -1,0 +1,12 @@
+// breakpoints guideline: https://getbootstrap.com/docs/5.3/layout/breakpoints/#available-breakpoints
+@mixin sm-up {
+  @media (width >= 576px) {
+    @content;
+  }
+}
+
+@mixin md-up {
+  @media (width >= 768px) {
+    @content;
+  }
+}

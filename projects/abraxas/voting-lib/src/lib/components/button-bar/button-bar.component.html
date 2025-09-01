@@ -1,11 +1,6 @@
 <div class="buttons" [class.sticky]="sticky">
   <div>
-    <bc-icon
-      *ngIf="hintLabel"
-      class="clickable-icon mr-3"
-      icon="question-circle-o"
-      [tooltip]="hintLabel">
-    </bc-icon>
+    <bc-icon *ngIf="hintLabel" class="clickable-icon mr-3" icon="question-circle-o" [tooltip]="hintLabel"> </bc-icon>
 
     <vo-lib-inline-spinner *ngIf="hasSaveButton" [loading]="saving" position="left">
       <bc-button

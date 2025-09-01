@@ -63,6 +63,10 @@
       "3": "xml"
     }
   },
+  "NOT_FOUND": {
+    "TITLE": "Seite nicht gefunden (Error 404)",
+    "SUB_TITLE": "Leider können wir die von Ihnen gesuchte Seite nicht finden."
+  },
   "ERRORS": {
     "GENERIC": {
       "TITLE": "Fehler",
@@ -73,6 +77,9 @@
     },
     "3": {
       "MESSAGE": "Die eingegebenen Daten sind nicht valide."
+    },
+    "5": {
+      "MESSAGE": "Daten nicht gefunden."
     },
     "6": {
       "MESSAGE": "Duplikat"

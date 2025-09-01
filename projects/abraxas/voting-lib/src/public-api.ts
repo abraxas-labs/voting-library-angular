@@ -31,6 +31,7 @@ export * from './lib/components/tree-navigation/searchable-tree-navigation/searc
 export * from './lib/components/icon-text/icon-text.component';
 export * from './lib/components/dialog/confirm-dialog/confirm-dialog.component';
 export * from './lib/components/split-screen/split-screen.component';
+export * from './lib/components/not-found-page/not-found-page.component';
 
 /**
  * directives
@@ -42,6 +43,7 @@ export * from './lib/directives/mouseup-outside.directive';
  * guards
  */
 export * from './lib/guards/auth-theme.guard';
+export * from './lib/guards/theme.guard';
 
 /**
  * grpc
