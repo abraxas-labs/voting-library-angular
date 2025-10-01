@@ -76,6 +76,7 @@ export * from './lib/services/global-error-handler.service';
 export * from './lib/services/snackbar.service';
 export * from './lib/services/theme.service';
 export * from './lib/services/language.service';
+export * from './lib/services/second-factor-transaction.service';
 
 /**
  * misc

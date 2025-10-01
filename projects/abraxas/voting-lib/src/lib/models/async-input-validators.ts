@@ -7,13 +7,14 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { Observable, of, timer } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { InputValidators } from './input-validators';
 
 // Use an async validator with debounce to avoid invalid state caused by space entry and trim validation.
 export class AsyncInputValidators {
-  public static simpleSlTextRegex: RegExp = /^[\p{L}\p{M}\p{Nd} .'-]+$/u;
-  public static simpleMlTextRegex: RegExp = /^[\p{L}\p{M}\p{Nd} .'\-\r\n]+$/u;
-  public static complexSlTextRegex: RegExp = /^[\p{L}\p{M}\p{Nd} _!?+\-@,\.:'()\/—'«»;&–`´’‘+*%=§]+$/u;
-  public static complexMlTextRegex: RegExp = /^[\p{L}\p{M}\p{Nd}\r\n _!?+\-@,\.:'()\/—'"«»;&–`´’‘+*%=§]+$/u;
+  public static simpleSlTextRegex = InputValidators.simpleSlTextRegex;
+  public static simpleMlTextRegex: RegExp = InputValidators.simpleMlTextRegex;
+  public static complexSlTextRegex: RegExp = InputValidators.complexSlTextRegex;
+  public static complexMlTextRegex: RegExp = InputValidators.complexMlTextRegex;
   public static untrimmedRegex: RegExp = /(^\s)|(\s$)/;
 
   private static validationDebounce: number = 500;

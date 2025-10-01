@@ -1,0 +1,36 @@
+<bc-dialog>
+  <div header class="header">
+    <bc-icon-button variant="tertiary" icon="cancel" (buttonClick)="cancel()"></bc-icon-button>
+    {{ 'SECOND_FACTOR_TRANSACTION.TITLE' | translate }}
+  </div>
+  <div class="content">
+    <ng-container *ngIf="!hasError; else error">
+      <p class="my-0">
+        {{ 'SECOND_FACTOR_TRANSACTION.INFO' | translate: { correlationCode } }}
+      </p>
+      <bc-spinner class="my-5" *ngIf="!hasError" size="large"></bc-spinner>
+      <bc-button
+        *ngIf="!showQrCode; else qrCodeContainer"
+        class="mb-3"
+        [variant]="'tertiary'"
+        [label]="'SECOND_FACTOR_TRANSACTION.NO_PUSH_NOTIFICATION' | translate"
+        (buttonClick)="showQrCode = true"
+      ></bc-button>
+      <ng-template #qrCodeContainer>
+        <p>{{ 'SECOND_FACTOR_TRANSACTION.QR_CODE' | translate }}</p>
+        <img [src]="qrCode" [alt]="'SECOND_FACTOR_TRANSACTION.QR_CODE_ALT' | translate" />
+      </ng-template>
+    </ng-container>
+  </div>
+
+  <div buttons>
+    <bc-button (buttonClick)="cancel()" [label]="(hasError ? 'APP.CLOSE' : 'COMMON.CANCEL') | translate"></bc-button>
+  </div>
+</bc-dialog>
+
+<ng-template #error>
+  <bc-alert-bar class="my-3"
+                color="error"
+                [displayDismissAction]="false"
+                [message]="'SECOND_FACTOR_TRANSACTION.ERROR' | translate"></bc-alert-bar>
+</ng-template>

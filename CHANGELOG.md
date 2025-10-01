@@ -1,4 +1,4 @@
-# ✨ Changelog (`v5.9.0`)
+# ✨ Changelog (`v5.11.2`)
 
 All notable changes to this project will be documented in this file.
 
@@ -8,11 +8,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Info
 
 ```text
-This version -------- v5.9.0
-Previous version ---- v5.4.4
+This version -------- v5.11.2
+Previous version ---- v5.9.0
 Initial version ----- v1.28.0
-Total commits ------- 9
+Total commits ------- 4
 ```
+
+## [v5.11.2] - 2025-09-30
+
+### 🔄 Changed
+
+- fix(VOTING-6165): allow quotes in comple sl text
+
+## [v5.11.1] - 2025-09-24
+
+### 🔄 Changed
+
+- extend complex string validator to support square brackets
+
+## [v5.11.0] - 2025-09-22
+
+### 🔄 Changed
+
+- 2fa dialog
+
+## [v5.10.0] - 2025-09-02
+
+### 🆕 Added
+
+- feat(VOTING-5916): add sync validators
 
 ## [v5.9.0] - 2025-07-28
 
@@ -251,21 +275,15 @@ BREAKING CHANGE: update to Angular 14 version
 
 ### 🔄 Changed
 
-- change white labeling logo from png to svg
-
-## [v2.3.0] - 2022-12-09
-
-### 🆕 Added
-
-- add whitelabeling Logo sg
-
-## [v2.2.3] - 2022-09-24
+- fix(VOTING-6165): allow quotes in comple sl text
 
 ### 🔄 Changed
 
-- correct page padding
+- extend complex string validator to support square brackets
 
-## [v2.2.2] - 2022-09-06
+### 🆕 Added
+
+- feat(VOTING-5916): add sync validators
 
 ### 🔄 Changed
 
@@ -391,11 +409,3 @@ BREAKING CHANGE: update to Angular 14 version
 ### 🆕 Added
 
 - add domain of influence canton
-
-### 🔄 Changed
-
-- change white labeling logo from png to svg
-
-### 🆕 Added
-
-- add whitelabeling Logo sg

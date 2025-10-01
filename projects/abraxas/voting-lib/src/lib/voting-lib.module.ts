@@ -8,6 +8,7 @@ import {
   AutocompleteModule,
   ButtonModule,
   CheckboxModule,
+  DialogService,
   DropdownModule,
   IconModule,
   RadioButtonModule,
@@ -109,6 +110,10 @@ export class VotingLibModule {
     return {
       ngModule: VotingLibModule,
       providers: [
+        {
+          provide: DialogService,
+          useClass: DialogService,
+        },
         {
           provide: GRPC_INTERCEPTORS,
           multi: true,

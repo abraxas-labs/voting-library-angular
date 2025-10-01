@@ -63,6 +63,14 @@
       "3": "xml"
     }
   },
+  "SECOND_FACTOR_TRANSACTION": {
+    "TITLE": "Transaktionsbestätigung",
+    "INFO": "Bitte bestätigen Sie die Transaktion in Ihrer Authentifizierungs-App mit dem Code {{correlationCode}}.",
+    "ERROR": "Es ist ein Fehler aufgetreten. Bitte führen Sie die Aktion erneut aus.",
+    "NO_PUSH_NOTIFICATION": "Keine Push-Benachrichtigung erhalten? Klicken Sie hier für Bestätigung via App!",
+    "QR_CODE": "Scannen Sie den QR-Code mit Ihrer Authentifizierungs-App um die Transaktion zu bestätigen.",
+    "QR_CODE_ALT": "QR Code"
+  },
   "NOT_FOUND": {
     "TITLE": "Seite nicht gefunden (Error 404)",
     "SUB_TITLE": "Leider können wir die von Ihnen gesuchte Seite nicht finden."
@@ -98,7 +106,9 @@
     },
     "403": {
       "MESSAGE": "Zugriff verweigert."
-    }
+    },
+    "SecondFactorTransactionDataChangedException": "Die Daten wurden in der Zwischenzeit geändert, somit muss die Aktion erneut ausgeführt werden.",
+    "SecondFactorTransactionNotVerifiedException": "Die Transaktionsbestätigung wurde abgebrochen. Bitte führen Sie die Aktion erneut aus."
   },
   "VALIDATION_MESSAGES": {
     "phone": "Bitte geben Sie eine gültige Telefonnummer ein, optional beginnend mit '+', bestehend aus 7 bis 14 Ziffern; Leerzeichen sind erlaubt.",
@@ -108,8 +118,8 @@
     "alphaNumWhite": "Bitte geben Sie nur Buchstaben, Zahlen und Leerzeichen ein.",
     "simpleSlText": "Bitte geben Sie einen einzeiligen, einfachen Text ein (nur Buchstaben, Zahlen, Leerzeichen, Punkte, Apostrophe und Bindestriche).",
     "simpleMlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen, Punkte, Apostrophe, Bindestriche und Zeilenumbrüche enthält.",
-    "complexSlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen und die folgenden Symbole enthält: _ ! ? + - @ , . : ' ( ) / — \" « » ; & – ` ´ ’ ‘ * % =",
-    "complexMlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen, Zeilenumbrüche und die folgenden Symbole enthält: _ ! ? + - @ , . : ' ( ) / — \" « » ; & – ` ´ ’ ‘ * % =",
+    "complexSlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen und die folgenden Symbole enthält: _ ! ? + - @ , . : ' ( ) [ ]  / — \" « » ; & – ` ´ ’ ‘ * % =",
+    "complexMlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen, Zeilenumbrüche und die folgenden Symbole enthält: _ ! ? + - @ , . : ' ( ) [ ] / — \" « » ; & – ` ´ ’ ‘ * % =",
     "untrimmed": "Bitte entfernen Sie führende oder nachgestellte Leerzeichen."
   }
 }
