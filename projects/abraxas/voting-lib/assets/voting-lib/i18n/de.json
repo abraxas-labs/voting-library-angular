@@ -118,8 +118,8 @@
     "alphaNumWhite": "Bitte geben Sie nur Buchstaben, Zahlen und Leerzeichen ein.",
     "simpleSlText": "Bitte geben Sie einen einzeiligen, einfachen Text ein (nur Buchstaben, Zahlen, Leerzeichen, Punkte, Apostrophe und Bindestriche).",
     "simpleMlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen, Punkte, Apostrophe, Bindestriche und Zeilenumbrüche enthält.",
-    "complexSlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen und die folgenden Symbole enthält: _ ! ? + - @ , . : ' ( ) [ ]  / — \" « » ; & – ` ´ ’ ‘ * % =",
-    "complexMlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen, Zeilenumbrüche und die folgenden Symbole enthält: _ ! ? + - @ , . : ' ( ) [ ] / — \" « » ; & – ` ´ ’ ‘ * % =",
+    "complexSlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen und die folgenden Symbole enthält: _ ! ? + - @ , . : ' ( ) [ ]  / — \" « » ; & – ` ´ ’ ‘ * % = ±",
+    "complexMlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen, Zeilenumbrüche und die folgenden Symbole enthält: _ ! ? + - @ , . : ' ( ) [ ] / — \" « » ; & – ` ´ ’ ‘ * % = ±",
     "untrimmed": "Bitte entfernen Sie führende oder nachgestellte Leerzeichen."
   }
 }

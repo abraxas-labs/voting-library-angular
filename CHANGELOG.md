@@ -1,4 +1,4 @@
-# ✨ Changelog (`v5.11.2`)
+# ✨ Changelog (`v5.11.4`)
 
 All notable changes to this project will be documented in this file.
 
@@ -8,11 +8,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Info
 
 ```text
-This version -------- v5.11.2
-Previous version ---- v5.9.0
+This version -------- v5.11.4
+Previous version ---- v5.11.2
 Initial version ----- v1.28.0
-Total commits ------- 4
+Total commits ------- 2
 ```
+
+## [v5.11.4] - 2025-10-16
+
+### 🆕 Added
+
+- add responsive lg-up mixin
+
+## [v5.11.3] - 2025-10-14
+
+### 🔄 Changed
+
+- allow plus-minus sign in complex text validation ruleset
 
 ## [v5.11.2] - 2025-09-30
 
@@ -261,17 +273,13 @@ BREAKING CHANGE: update to Angular 14 version
 
 ## [v2.5.0] - 2023-01-20
 
-### 🔄 Changed
-
-- cache last theme
-
-## [v2.4.1] - 2022-12-16
-
 ### 🆕 Added
 
-- add domain of influence canton
+- add responsive lg-up mixin
 
-## [v2.4.0] - 2022-12-12
+### 🔄 Changed
+
+- allow plus-minus sign in complex text validation ruleset
 
 ### 🔄 Changed
 
@@ -405,7 +413,3 @@ BREAKING CHANGE: update to Angular 14 version
 ### 🔄 Changed
 
 - Angular Update to version 14
-
-### 🆕 Added
-
-- add domain of influence canton

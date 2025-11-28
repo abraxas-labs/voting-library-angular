@@ -10,3 +10,9 @@
     @content;
   }
 }
+
+@mixin lg-up {
+  @media (width >= 992px) {
+    @content;
+  }
+}
