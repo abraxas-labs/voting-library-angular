@@ -4,7 +4,7 @@
  * For license information see LICENSE file.
  */
 
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -14,13 +14,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   standalone: false,
 })
 export class BackButtonComponent {
+  private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute);
+
   @Input()
   public navigateCommands: any[] = [];
-
-  constructor(
-    private readonly router: Router,
-    private readonly route: ActivatedRoute,
-  ) {}
 
   public async back(): Promise<void> {
     await this.router.navigate(!!this.navigateCommands && !!this.navigateCommands.length ? this.navigateCommands : ['..'], {

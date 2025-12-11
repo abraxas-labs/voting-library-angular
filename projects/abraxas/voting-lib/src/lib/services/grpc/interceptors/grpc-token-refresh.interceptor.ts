@@ -5,7 +5,7 @@
  */
 
 import { HttpRequest } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { Metadata } from 'grpc-web';
 import { Observable, from, switchMap } from 'rxjs';
@@ -21,7 +21,7 @@ import { GrpcHandler } from '../grpc-handler';
  */
 @Injectable({ providedIn: 'root' })
 export class GrpcTokenRefreshInterceptor implements GrpcInterceptor {
-  constructor(private oauthService: OAuthService) {}
+  private oauthService = inject(OAuthService);
 
   public intercept(req: HttpRequest<any>, metadata: Metadata, next: GrpcHandler): Observable<any> {
     if (this.oauthService.hasValidAccessToken()) {

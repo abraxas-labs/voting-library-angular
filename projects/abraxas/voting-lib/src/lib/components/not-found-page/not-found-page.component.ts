@@ -4,7 +4,7 @@
  * For license information see LICENSE file.
  */
 
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ErrorPageModule } from '@abraxas/base-components';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Router } from '@angular/router';
@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
   styleUrl: './not-found-page.component.scss',
 })
 export class NotFoundPageComponent {
-  constructor(private readonly router: Router) {}
+  private readonly router = inject(Router);
 
   protected async back(): Promise<void> {
     await this.router.navigate(['/']);

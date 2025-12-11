@@ -5,7 +5,7 @@
  */
 
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 
 const contentTypeKey = 'content-type';
@@ -17,7 +17,7 @@ const filenameRegex: RegExp = /filename\*=UTF-8''?([^;]*)/;
   providedIn: 'root',
 })
 export class FileDownloadService {
-  constructor(private readonly http: HttpClient) {}
+  private readonly http = inject(HttpClient);
 
   public async postDownloadFile(url: string, body: any, acceptContentType?: string): Promise<void> {
     const headers = new HttpHeaders();

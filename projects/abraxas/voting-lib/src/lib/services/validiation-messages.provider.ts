@@ -5,22 +5,22 @@
  */
 
 import { BCLanguageService, Language, ValidationMessagesIntl } from '@abraxas/base-components';
-import { Injectable, Optional, SkipSelf } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { InterpolatableTranslationObject } from '@ngx-translate/core/lib/translate.service';
+import { inject, Injectable } from '@angular/core';
+import { InterpolatableTranslationObject, TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ValidationMessagesProvider extends ValidationMessagesIntl {
+  private readonly translateService = inject(TranslateService);
+
   private readonly validationMessagesKey: string = 'VALIDATION_MESSAGES';
 
-  constructor(
-    private readonly translateService: TranslateService,
-    bcLanguageService: BCLanguageService,
-    @Optional() @SkipSelf() parentIntl?: ValidationMessagesIntl,
-  ) {
-    super(bcLanguageService, parentIntl);
+  constructor() {
+    const bcLanguageService = inject(BCLanguageService);
+    const parentIntl = inject(ValidationMessagesIntl, { optional: true, skipSelf: true });
+
+    super(bcLanguageService, parentIntl ?? undefined);
     for (const lang of this.translateService.getLangs()) {
       this.setValidationMessages(lang);
     }
@@ -30,8 +30,8 @@ export class ValidationMessagesProvider extends ValidationMessagesIntl {
    * Loads and sets validation error messages for the given language.
    */
   private setValidationMessages(lang: string): void {
-    this.translateService.getTranslation(lang).subscribe((translations: InterpolatableTranslationObject) => {
-      const validationMessages = translations[this.validationMessagesKey];
+    this.translateService.currentLoader.getTranslation(lang).subscribe((translations: InterpolatableTranslationObject) => {
+      const validationMessages: any = translations[this.validationMessagesKey];
 
       if (!validationMessages) {
         return;

@@ -6,7 +6,7 @@
 
 import { AuthStorageService } from '@abraxas/base-components';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { REST_API_URL } from '../../../tokens';
 
@@ -18,10 +18,8 @@ const accessTokenStorageField = 'access_token';
   providedIn: 'root',
 })
 export class HttpAuthInterceptor implements HttpInterceptor {
-  constructor(
-    private readonly authStorage: AuthStorageService,
-    @Inject(REST_API_URL) private readonly restApiUrl: string | undefined,
-  ) {}
+  private readonly authStorage = inject(AuthStorageService);
+  private readonly restApiUrl = inject(REST_API_URL);
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (!this.restApiUrl || !req.url.includes(this.restApiUrl) || !!req.headers.get(authorizationKey)) {

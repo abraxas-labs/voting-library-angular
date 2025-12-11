@@ -5,7 +5,7 @@
  */
 
 import { HttpErrorResponse } from '@angular/common/http';
-import { ErrorHandler, Inject, Injectable, NgZone, Optional } from '@angular/core';
+import { ErrorHandler, Injectable, NgZone, inject } from '@angular/core';
 import { RpcError } from 'grpc-web';
 import { HttpProblemDetails } from './http/http-problem-details.model';
 import { ERROR_STATUS_CODE_URL_MAPPING, GRPC_ERROR_MAPPER, NOT_FOUND_ERROR_URL, PERMISSION_DENIED_ERROR_URL } from '../tokens';
@@ -27,16 +27,16 @@ export type GrpcErrorMapper = (error: any) => undefined | { code: number; messag
   providedIn: 'root',
 })
 export class GlobalErrorHandler implements ErrorHandler {
-  constructor(
-    private readonly i18n: TranslateService,
-    private readonly zone: NgZone,
-    private readonly router: Router,
-    private readonly snackbarService: SnackbarService,
-    @Inject(GRPC_ERROR_MAPPER) @Optional() private readonly grpcErrorMapper?: GrpcErrorMapper,
-    @Inject(NOT_FOUND_ERROR_URL) @Optional() private readonly notFoundUrl?: string,
-    @Inject(PERMISSION_DENIED_ERROR_URL) @Optional() private readonly permissionDeniedUrl?: string,
-    @Inject(ERROR_STATUS_CODE_URL_MAPPING) @Optional() private statusCodeUrlMapping?: Record<number, string>,
-  ) {
+  private readonly i18n = inject(TranslateService);
+  private readonly zone = inject(NgZone);
+  private readonly router = inject(Router);
+  private readonly snackbarService = inject(SnackbarService);
+  private readonly grpcErrorMapper = inject<GrpcErrorMapper>(GRPC_ERROR_MAPPER, { optional: true });
+  private readonly notFoundUrl = inject(NOT_FOUND_ERROR_URL, { optional: true });
+  private readonly permissionDeniedUrl = inject(PERMISSION_DENIED_ERROR_URL, { optional: true });
+  private statusCodeUrlMapping = inject<Record<number, string>>(ERROR_STATUS_CODE_URL_MAPPING, { optional: true });
+
+  constructor() {
     this.setupStatusUrlMappings();
   }
 
@@ -149,19 +149,19 @@ export class GlobalErrorHandler implements ErrorHandler {
   private setupStatusUrlMappings() {
     this.statusCodeUrlMapping ??= {};
 
-    if (this.notFoundUrl !== undefined && !(HTTP_NOT_FOUND_STATUS_CODE in this.statusCodeUrlMapping)) {
+    if (this.notFoundUrl !== null && !(HTTP_NOT_FOUND_STATUS_CODE in this.statusCodeUrlMapping)) {
       this.statusCodeUrlMapping[HTTP_NOT_FOUND_STATUS_CODE] = this.notFoundUrl;
     }
 
-    if (this.notFoundUrl !== undefined && !(GRPC_NOT_FOUND_STATUS_CODE in this.statusCodeUrlMapping)) {
+    if (this.notFoundUrl !== null && !(GRPC_NOT_FOUND_STATUS_CODE in this.statusCodeUrlMapping)) {
       this.statusCodeUrlMapping[GRPC_NOT_FOUND_STATUS_CODE] = this.notFoundUrl;
     }
 
-    if (this.permissionDeniedUrl !== undefined && !(HTTP_PERMISSION_DENIED_CODE in this.statusCodeUrlMapping)) {
+    if (this.permissionDeniedUrl !== null && !(HTTP_PERMISSION_DENIED_CODE in this.statusCodeUrlMapping)) {
       this.statusCodeUrlMapping[HTTP_PERMISSION_DENIED_CODE] = this.permissionDeniedUrl;
     }
 
-    if (this.permissionDeniedUrl !== undefined && !(GRPC_PERMISSION_DENIED_CODE in this.statusCodeUrlMapping)) {
+    if (this.permissionDeniedUrl !== null && !(GRPC_PERMISSION_DENIED_CODE in this.statusCodeUrlMapping)) {
       this.statusCodeUrlMapping[GRPC_PERMISSION_DENIED_CODE] = this.permissionDeniedUrl;
     }
   }

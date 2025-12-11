@@ -4,7 +4,7 @@
  * For license information see LICENSE file.
  */
 
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { EnumItem } from '../models/enum-item';
 import { EnumItemDescription } from '../models/enum-item-description';
@@ -13,7 +13,7 @@ import { EnumItemDescription } from '../models/enum-item-description';
   providedIn: 'root',
 })
 export class EnumUtil {
-  constructor(private readonly i18n: TranslateService) {}
+  private readonly i18n = inject(TranslateService);
 
   public static getArray<T>(enumObj: object | undefined): EnumItem<T>[] {
     const items = EnumUtil.getArrayWithUnspecified<T>(enumObj);

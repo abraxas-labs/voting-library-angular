@@ -5,7 +5,7 @@
  */
 
 import { AuthStorageService } from '@abraxas/base-components';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Metadata } from 'grpc-web';
 import { Observable } from 'rxjs';
 import { GrpcHandler } from '../grpc-handler';
@@ -21,7 +21,7 @@ function noAccessTokenPresent(): never {
 
 @Injectable({ providedIn: 'root' })
 export class GrpcAuthInterceptor implements GrpcInterceptor {
-  constructor(private readonly authStorage: AuthStorageService) {}
+  private readonly authStorage = inject(AuthStorageService);
 
   public intercept(req: unknown, metadata: Metadata, next: GrpcHandler): Observable<any> {
     const accessToken = this.authStorage.getItem(accessTokenStorageField) ?? noAccessTokenPresent();

@@ -5,7 +5,7 @@
  */
 
 import { AuthorizationService } from '@abraxas/base-components';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Metadata } from 'grpc-web';
 import { from, Observable } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
@@ -16,7 +16,7 @@ const tenantKey = 'x-tenant';
 
 @Injectable({ providedIn: 'root' })
 export class GrpcTenantInterceptor implements GrpcInterceptor {
-  constructor(private readonly authService: AuthorizationService) {}
+  private readonly authService = inject(AuthorizationService);
 
   public intercept(req: unknown, metadata: Metadata, next: GrpcHandler): Observable<any> {
     if (!metadata[tenantKey]) {

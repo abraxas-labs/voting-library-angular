@@ -4,7 +4,7 @@
  * For license information see LICENSE file.
  */
 
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AuthenticationConfig, IsAuthenticatedGuard } from '@abraxas/base-components';
 import { ThemeService } from '../services/theme.service';
@@ -13,11 +13,9 @@ import { ThemeService } from '../services/theme.service';
   providedIn: 'root',
 })
 export class AuthThemeGuard {
-  constructor(
-    private readonly config: AuthenticationConfig,
-    private readonly authGuard: IsAuthenticatedGuard,
-    private readonly themeService: ThemeService,
-  ) {}
+  private readonly config = inject(AuthenticationConfig);
+  private readonly authGuard = inject(IsAuthenticatedGuard);
+  private readonly themeService = inject(ThemeService);
 
   public async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     let themeName = route.params.theme;

@@ -4,7 +4,7 @@
  * For license information see LICENSE file.
  */
 
-import { Directive, ElementRef, EventEmitter, HostListener, Output } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, HostListener, Output, inject } from '@angular/core';
 
 @Directive({
   selector: '[voLibMouseupOutside]',
@@ -14,10 +14,10 @@ import { Directive, ElementRef, EventEmitter, HostListener, Output } from '@angu
 // https://gitlab.abraxas-tools.ch/abraxas/customapps/libraries/angular/base-components-next/-/blob/master/projects/
 // abraxas/base-components/src/lib/directives/mouseup-outside
 export class MouseupOutsideDirective {
+  private elementRef = inject(ElementRef);
+
   @Output()
   public voLibMouseupOutside: EventEmitter<MouseEvent> = new EventEmitter();
-
-  constructor(private elementRef: ElementRef) {}
 
   @HostListener('document:pointerup', ['$event'])
   public mousemove(event: PointerEvent): void {

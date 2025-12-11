@@ -4,7 +4,7 @@
  * For license information see LICENSE file.
  */
 
-import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
+import { Injectable, Renderer2, RendererFactory2, inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 const supportedThemes = ['default', 'sg'];
@@ -25,7 +25,9 @@ export class ThemeService {
   public readonly theme$ = new BehaviorSubject<string | undefined>(undefined);
   public readonly logo$ = new BehaviorSubject<string | undefined>(undefined);
 
-  constructor(rendererFactory: RendererFactory2) {
+  constructor() {
+    const rendererFactory = inject(RendererFactory2);
+
     this.renderer = rendererFactory.createRenderer(null, null);
   }
 

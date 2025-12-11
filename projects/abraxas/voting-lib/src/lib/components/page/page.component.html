@@ -6,24 +6,28 @@
 
   <div class="container" [class.sidebar-open]="sidebarOpen">
     <div class="content" [style.margin-right]="sidebarOpen ? sidebarWidth : '0'">
-      <ng-container *ngIf="contentLoading; else content">
+      @if (contentLoading) {
         <h1>
           <bc-spinner size="2.5rem" class="mr-1"></bc-spinner>
           {{ 'COMMON.LOADING' | translate }}
         </h1>
-      </ng-container>
-      <ng-template #content>
-        <vo-lib-back-button *ngIf="showBackButton" [navigateCommands]="backButtonNavigateCommands"></vo-lib-back-button>
-        <h1 *ngIf="header" class="page-title">{{ header | translate }}</h1>
+      } @else {
+        @if (showBackButton) {
+          <vo-lib-back-button [navigateCommands]="backButtonNavigateCommands"></vo-lib-back-button>
+        }
+        @if (header) {
+          <h1 class="page-title">{{ header | translate }}</h1>
+        }
         <ng-content select="[page-header]"></ng-content>
         <main>
           <ng-content></ng-content>
         </main>
         <ng-content select="[page-footer]"></ng-content>
-      </ng-template>
+      }
     </div>
 
-    <vo-lib-sidebar [(open)]="sidebarOpen" [sidebarWidth]="sidebarWidth" *ngIf="enableSidebar" [sidebarTemplate]="sidebarTemplate">
-    </vo-lib-sidebar>
+    @if (enableSidebar) {
+      <vo-lib-sidebar [(open)]="sidebarOpen" [sidebarWidth]="sidebarWidth" [sidebarTemplate]="sidebarTemplate"> </vo-lib-sidebar>
+    }
   </div>
 </div>

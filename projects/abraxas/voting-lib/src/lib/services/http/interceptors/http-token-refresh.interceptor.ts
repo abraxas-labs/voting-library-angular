@@ -5,7 +5,7 @@
  */
 
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { Observable, from, switchMap } from 'rxjs';
 import { REST_API_URL } from '../../../tokens';
@@ -23,10 +23,8 @@ const authorizationKey = 'Authorization';
   providedIn: 'root',
 })
 export class HttpTokenRefreshInterceptor implements HttpInterceptor {
-  constructor(
-    private oauthService: OAuthService,
-    @Inject(REST_API_URL) private readonly restApiUrl: string | undefined,
-  ) {}
+  private oauthService = inject(OAuthService);
+  private readonly restApiUrl = inject(REST_API_URL);
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (!this.restApiUrl || !req.url.includes(this.restApiUrl) || !!req.headers.get(authorizationKey)) {

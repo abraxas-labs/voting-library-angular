@@ -6,7 +6,7 @@
 
 import { AuthenticationConfig } from '@abraxas/base-components';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { REST_API_URL } from '../../../tokens';
 
@@ -16,10 +16,8 @@ const appKey = 'x-app';
   providedIn: 'root',
 })
 export class HttpAppInterceptor implements HttpInterceptor {
-  constructor(
-    private readonly config: AuthenticationConfig,
-    @Inject(REST_API_URL) private readonly restApiUrl: string | undefined,
-  ) {}
+  private readonly config = inject(AuthenticationConfig);
+  private readonly restApiUrl = inject(REST_API_URL);
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (!this.restApiUrl || !req.url.includes(this.restApiUrl) || !!req.headers.get(appKey)) {

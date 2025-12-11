@@ -5,7 +5,7 @@
  */
 
 import { AutocompleteComponent, Tenant, TenantService } from '@abraxas/base-components';
-import { ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, Output, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, Output, ViewChild, inject } from '@angular/core';
 import { from, Subject, Subscription } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
@@ -15,6 +15,9 @@ import { finalize } from 'rxjs/operators';
   standalone: false,
 })
 export class TenantSelectionComponent implements OnDestroy {
+  private readonly tenantService = inject(TenantService);
+  private readonly ref = inject(ChangeDetectorRef);
+
   @Input()
   public label: string = '';
 
@@ -33,10 +36,6 @@ export class TenantSelectionComponent implements OnDestroy {
   public tenants: Tenant[] = [];
 
   private loadingTenantsSubscription: Subscription | undefined;
-  constructor(
-    private readonly tenantService: TenantService,
-    private readonly ref: ChangeDetectorRef,
-  ) {}
 
   @Input()
   public set selectedTenant(v: Tenant) {

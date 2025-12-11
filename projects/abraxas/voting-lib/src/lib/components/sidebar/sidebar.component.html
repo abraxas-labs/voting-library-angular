@@ -1,9 +1,8 @@
 <div class="sidebar" [class.sidebar-open]="open" [@openClose]="{ value: open ? 'open' : 'close', params: { width: sidebarWidth } }">
-  <ng-container *ngIf="open; else closed">
+  @if (open) {
     <bc-icon class="sidebar-closer" icon="cancel" (click)="open = false"></bc-icon>
     <ng-container *ngTemplateOutlet="sidebarTemplate" [style.width]="sidebarWidth"></ng-container>
-  </ng-container>
-  <ng-template #closed>
+  } @else {
     <bc-icon class="sidebar-drawer" icon="angle-left" (click)="open = true"></bc-icon>
-  </ng-template>
+  }
 </div>

@@ -1,7 +1,9 @@
 <bc-search [(value)]="searchText" class="my-3" [placeholder]="'APP.SEARCH' | translate"> </bc-search>
-<div *ngIf="showAdd" class="flex full-width">
-  <bc-button [variant]="'tertiary'" [label]="addLabel | translate" [icon]="'plus'" (buttonClick)="addClicked.emit()"></bc-button>
-</div>
+@if (showAdd) {
+  <div class="flex full-width">
+    <bc-button [variant]="'tertiary'" [label]="addLabel | translate" [icon]="'plus'" (buttonClick)="addClicked.emit()"></bc-button>
+  </div>
+}
 
 <vo-lib-tree-navigation
   [nodes]="filteredNodes"

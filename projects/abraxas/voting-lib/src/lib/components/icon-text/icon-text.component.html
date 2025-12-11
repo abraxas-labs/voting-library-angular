@@ -1,15 +1,17 @@
 <div class="icon-text">
-  <ng-container *ngIf="iconBeforeText">
+  @if (iconBeforeText) {
     <ng-container *ngTemplateOutlet="iconTemplate"></ng-container>
-  </ng-container>
+  }
 
   <ng-content></ng-content>
 
-  <ng-container *ngIf="!iconBeforeText">
+  @if (!iconBeforeText) {
     <ng-container *ngTemplateOutlet="iconTemplate"></ng-container>
-  </ng-container>
+  }
 
   <ng-template #iconTemplate>
-    <bc-icon [class.clickable]="iconClickable" [icon]="icon" (click)="iconClick.emit()" *ngIf="showIcon"></bc-icon>
+    @if (showIcon) {
+      <bc-icon [class.clickable]="iconClickable" [icon]="icon" (click)="iconClick.emit()"></bc-icon>
+    }
   </ng-template>
 </div>

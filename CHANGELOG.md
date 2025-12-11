@@ -1,4 +1,4 @@
-# ✨ Changelog (`v5.11.4`)
+# ✨ Changelog (`v5.11.5`)
 
 All notable changes to this project will be documented in this file.
 
@@ -8,11 +8,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Info
 
 ```text
-This version -------- v5.11.4
-Previous version ---- v5.11.2
+This version -------- v5.11.5
+Previous version ---- v5.11.4
 Initial version ----- v1.28.0
 Total commits ------- 2
 ```
+
+## [v5.11.5] - 2025-12-10
+
+### 🔄 Changed
+
+- improve truncated table header width
+
+### 🔄 Changed
+
+- angular and base components update
 
 ## [v5.11.4] - 2025-10-16
 
@@ -273,143 +283,96 @@ BREAKING CHANGE: update to Angular 14 version
 
 ## [v2.5.0] - 2023-01-20
 
-### 🆕 Added
-
-- add responsive lg-up mixin
-
 ### 🔄 Changed
 
-- allow plus-minus sign in complex text validation ruleset
+- cache last theme
 
-### 🔄 Changed
-
-- fix(VOTING-6165): allow quotes in comple sl text
-
-### 🔄 Changed
-
-- extend complex string validator to support square brackets
+## [v2.4.1] - 2022-12-16
 
 ### 🆕 Added
 
-- feat(VOTING-5916): add sync validators
+- add domain of influence canton
+
+## [v2.4.0] - 2022-12-12
 
 ### 🔄 Changed
 
-- bump BC version
+- change white labeling logo from png to svg
 
-### :arrows_counterclockwise: Changed
-
-- extend complex single-/multiline validator with paragraph sign `§`
+## [v2.3.0] - 2022-12-09
 
 ### 🆕 Added
 
-- feat(VOTING-5894): not found page
+- add whitelabeling Logo sg
+
+## [v2.2.3] - 2022-09-24
+
+### 🔄 Changed
+
+- correct page padding
+
+## [v2.2.2] - 2022-09-06
+
+### 🔄 Changed
+
+- optimised white labling to not overwrite base components styles
+
+## [v2.2.1] - 2022-08-31
+
+### 🔄 Changed
+
+- interpolate theme color assignment to css variables
+
+## [v2.2.0] - 2022-08-31
 
 ### 🆕 Added
 
-- add primary-20 color
+- Added support for white-labling
+
+## [v2.1.1] - 2022-08-23
 
 ### 🔒 Security
 
-- harden regex to prevent potential DoS vulnerability caused by super-linear runtime due to excessive backtracking.
+- Updated vulnerable dependencies
 
 ### 🔄 Changed
 
-- fix tenant selection after bc update
+- Clean up code smells
+
+## [v2.1.0] - 2022-08-11
 
 ### 🔄 Changed
 
-- fix retry forever with backoff typing
+- update base components
+
+## [v2.0.1] - 2022-07-25
+
+### 🔄 Changed
+
+- add build production config
+
+## [v2.0.0] - 2022-07-25
+
+BREAKING CHANGE: updated angular to v13 and updated to the new base components
+
+## [v1.29.0] - 2022-07-18
 
 ### 🆕 Added
 
-- add primary color 25
+- add outdated browser warning page
+
+## [v1.28.2] - 2022-05-30
 
 ### 🆕 Added
 
-- add form validation
+- add confirm dialog component to public api
 
-### 🔄 Changed
-
-- update node version
-
-### 🔄 Changed
-
-- angular 19 update
+## [v1.28.1] - 2022-05-30
 
 ### 🆕 Added
 
-- add noindex and nofollow robots meta tag to error pages
+- set focus for button bar component
 
-### 🔄 Changed
+## [v1.28.0] - 2022-05-09
 
-- readonly form fields
-
-### 🔄 Changed
-
-- revert adjust dialog content height to remove scrollbar
-
-### 🔄 Changed
-
-- adjust dialog content height to remove scrollbar
-
-### 🔄 Changed
-
-- change font-family from Helvetica to Roboto in sg-theming
-
-### :arrows_counterclockwise: Changed
-
-- update bug bounty template reference
-- patch ci-cd template version, align with new defaults
-
-### :arrows_counterclockwise: Changed
-
-- make tree navigation search customizable
-
-BREAKING CHANGE: angular 18 update
-
-### 🆕 Added
-
-- add truncate long sortable table header style
-
-### :arrows_counterclockwise: Changed
-
-- correctly send access token on failure
-
-### 🔄 Changed
-
-- change plausibilisiert state color
-
-BREAKING CHANGE: angular 17 update
-
-### 🔄 Changed
-
-- angular 17 update
-
-### 🔄 Changed
-
-- counting circle result state descriptions
-
-### 🆕 Added
-
-- add save icon to button bar
-
-### 🆕 Added
-
-- add grpc token refresh interceptor to handle manual token refresh
-- add http token refresh interceptor to handle manual token refresh
-- add new release job for continuous development allowing intermediate version patches.
-
-### :arrows_counterclockwise: Changed
-
-- improved gRPC streaming retry handling
-
-### 🆕 Added
-
-- add error message for unknown grpc status
-
-BREAKING CHANGE: update to Angular 14 version
-
-### 🔄 Changed
-
-- Angular Update to version 14
+### 🎉 Initial release for Bug Bounty

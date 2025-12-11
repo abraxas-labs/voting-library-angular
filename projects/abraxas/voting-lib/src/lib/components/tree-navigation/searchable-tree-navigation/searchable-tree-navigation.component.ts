@@ -4,7 +4,7 @@
  * For license information see LICENSE file.
  */
 
-import { Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output, TemplateRef } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef, inject } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { SEARCH_DEBOUNCE_TIME } from '../../../tokens';
@@ -17,6 +17,8 @@ import { TreeNode } from '../tree-node';
   standalone: false,
 })
 export class SearchableTreeNavigationComponent<T> implements OnInit, OnDestroy {
+  private readonly searchDebounceTime = inject(SEARCH_DEBOUNCE_TIME);
+
   @Input()
   public editModeEnabled: boolean = false;
 
@@ -50,8 +52,6 @@ export class SearchableTreeNavigationComponent<T> implements OnInit, OnDestroy {
   private searchTextValue: string | undefined;
   private readonly search$: Subject<string> = new Subject<string>();
   private searchSubscription?: Subscription;
-
-  constructor(@Inject(SEARCH_DEBOUNCE_TIME) private readonly searchDebounceTime: number) {}
 
   @Input()
   public set nodes(v: TreeNode<T>[]) {

@@ -5,7 +5,7 @@
  */
 
 import { AuthenticationConfig } from '@abraxas/base-components';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Metadata } from 'grpc-web';
 import { Observable } from 'rxjs';
 import { GrpcHandler } from '../grpc-handler';
@@ -15,7 +15,7 @@ const appKey = 'x-app';
 
 @Injectable({ providedIn: 'root' })
 export class GrpcAppInterceptor implements GrpcInterceptor {
-  constructor(private readonly config: AuthenticationConfig) {}
+  private readonly config = inject(AuthenticationConfig);
 
   public intercept(req: unknown, metadata: Metadata, next: GrpcHandler): Observable<any> {
     if (!metadata[appKey]) {

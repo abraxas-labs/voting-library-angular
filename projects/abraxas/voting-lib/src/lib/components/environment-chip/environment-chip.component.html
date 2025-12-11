@@ -1,6 +1,3 @@
-<bc-status-label
-  *ngIf="!isProd"
-  [foregroundColor]="foregroundColor"
-  [backgroundColor]="color"
-  [label]="'ENV.' + env | translate"
-></bc-status-label>
+@if (!isProd) {
+  <bc-status-label [foregroundColor]="foregroundColor" [backgroundColor]="color" [label]="'ENV.' + env | translate"></bc-status-label>
+}

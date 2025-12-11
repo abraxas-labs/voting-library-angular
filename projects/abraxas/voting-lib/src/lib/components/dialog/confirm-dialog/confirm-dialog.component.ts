@@ -4,7 +4,7 @@
  * For license information see LICENSE file.
  */
 
-import { Component, Inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -13,16 +13,17 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   standalone: false,
 })
 export class ConfirmDialogComponent {
+  private readonly dialogRef = inject<MatDialogRef<ConfirmDialogData>>(MatDialogRef);
+
   public readonly title: string;
   public readonly message: string;
   public readonly confirmText: string;
   public readonly cancelText: string;
   public readonly showCancel: boolean;
 
-  constructor(
-    private readonly dialogRef: MatDialogRef<ConfirmDialogData>,
-    @Inject(MAT_DIALOG_DATA) dialogData: ConfirmDialogData,
-  ) {
+  constructor() {
+    const dialogData = inject<ConfirmDialogData>(MAT_DIALOG_DATA);
+
     this.title = dialogData.title;
     this.message = dialogData.message;
     this.showCancel = dialogData.showCancel;

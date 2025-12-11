@@ -4,7 +4,7 @@
  * For license information see LICENSE file.
  */
 
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { RpcError } from 'grpc-web';
 import { defer, Observable, of, OperatorFunction, throwError, retry } from 'rxjs';
 import {
@@ -21,7 +21,7 @@ const RETRY_COUNT = 5;
   providedIn: 'root',
 })
 export class SecondFactorTransactionService {
-  constructor(private readonly dialog: DialogService) {}
+  private readonly dialog = inject(DialogService);
 
   public showDialogAndExecuteVerifyAction<T>(action: () => Observable<T>, data: SecondFactorTransactionDialogData): Promise<void> {
     const dialogRef = this.dialog.open<SecondFactorTransactionDialogComponent>(SecondFactorTransactionDialogComponent, data);

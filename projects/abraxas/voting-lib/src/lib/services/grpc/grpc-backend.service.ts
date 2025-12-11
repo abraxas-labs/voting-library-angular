@@ -4,7 +4,7 @@
  * For license information see LICENSE file.
  */
 
-import { Inject, Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { ClientReadableStream, Metadata } from 'grpc-web';
 import { firstValueFrom, from, mergeMap, Observable, of } from 'rxjs';
 import { finalize } from 'rxjs/operators';
@@ -23,7 +23,7 @@ import { GRPC_INTERCEPTORS, GrpcInterceptor } from './grpc-interceptor';
   providedIn: 'root',
 })
 export class GrpcBackendService {
-  constructor(@Inject(GRPC_INTERCEPTORS) private readonly interceptors: GrpcInterceptor[]) {}
+  private readonly interceptors = inject(GRPC_INTERCEPTORS);
 
   public runRequest<TReq, TResp>(requestFn: GrpcUnaryRequestFn<TReq, TResp>, request: TReq, metadata: Metadata = {}): Promise<TResp> {
     const wrappedFn = this.wrapUnaryRequestFn(requestFn);

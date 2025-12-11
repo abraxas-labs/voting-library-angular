@@ -4,7 +4,7 @@
  * For license information see LICENSE file.
  */
 
-import { ChangeDetectionStrategy, Component, Inject, InjectionToken } from '@angular/core';
+import { ChangeDetectionStrategy, Component, InjectionToken, inject } from '@angular/core';
 import { Environments } from '../../models/environments.enum';
 
 export const ENV_INJECTION_TOKEN: InjectionToken<string> = new InjectionToken<string>('environment short name');
@@ -16,11 +16,15 @@ export const ENV_INJECTION_TOKEN: InjectionToken<string> = new InjectionToken<st
   standalone: false,
 })
 export class EnvironmentChipComponent {
+  env = inject<Environments>(ENV_INJECTION_TOKEN);
+
   public readonly color: string;
   public readonly foregroundColor: 'dark' | 'light' = 'dark';
   public readonly isProd: boolean;
 
-  constructor(@Inject(ENV_INJECTION_TOKEN) public env: Environments) {
+  constructor() {
+    const env = this.env;
+
     this.isProd = env === Environments.prod || env === Environments.pro;
 
     this.color = '#f00';

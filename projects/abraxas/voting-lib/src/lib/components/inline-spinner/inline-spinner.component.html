@@ -1,4 +1,6 @@
 <ng-content></ng-content>
 <div class="spinner-container" [ngClass]="position">
-  <bc-spinner *ngIf="loading" [className]="spinnerClass" [size]="size"></bc-spinner>
+  @if (loading) {
+    <bc-spinner [className]="spinnerClass" [size]="size"></bc-spinner>
+  }
 </div>
