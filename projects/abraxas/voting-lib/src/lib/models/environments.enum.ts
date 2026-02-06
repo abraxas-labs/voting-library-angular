@@ -14,4 +14,5 @@ export enum Environments {
   pro = 'pro',
   prod = 'prod',
   bbt = 'bbt',
+  edu = 'edu',
 }

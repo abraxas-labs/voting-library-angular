@@ -1,4 +1,4 @@
-# ✨ Changelog (`v5.11.5`)
+# ✨ Changelog (`v5.13.1`)
 
 All notable changes to this project will be documented in this file.
 
@@ -8,11 +8,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Info
 
 ```text
-This version -------- v5.11.5
+This version -------- v5.13.1
 Previous version ---- v5.11.4
 Initial version ----- v1.28.0
-Total commits ------- 2
+Total commits ------- 7
 ```
+
+## [v5.13.1] - 2026-02-06
+
+### 🔄 Changed
+
+- extend CD pipeline with enhanced bug bounty publication workflow
+
+## [v5.13.0] - 2026-01-19
+
+### 🆕 Added
+
+- add canton AR
+
+## [v5.12.0] - 2026-01-15
+
+### 🆕 Added
+
+- feat(VOTING-6752): add https url string validation
+
+## [v5.11.6] - 2026-01-12
+
+### 🔄 Changed
+
+- add new environment 'edu' and configure chip visualization
 
 ## [v5.11.5] - 2025-12-10
 

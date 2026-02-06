@@ -11,8 +11,7 @@ import { Directive, ElementRef, EventEmitter, HostListener, Output, inject } fro
   standalone: false,
 })
 // Copied from base components, since the directive is not exported
-// https://gitlab.abraxas-tools.ch/abraxas/customapps/libraries/angular/base-components/-/blob/master/projects/
-// abraxas/base-components/src/lib/directives/mousemove-outside
+// Ref: projects/abraxas/base-components/src/lib/directives/mousemove-outside
 export class MousemoveOutsideDirective {
   private elementRef = inject(ElementRef);
 

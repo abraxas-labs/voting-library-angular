@@ -8,7 +8,8 @@
     "uat": "Simulation",
     "pro": "Produktion",
     "prod": "Produktion",
-    "bbt": "Bug Bounty Testing"
+    "bbt": "Bug Bounty Testing",
+    "edu": "Demo"
   },
   "SELECT": {
     "LOADING": "Laden...",
@@ -48,7 +49,8 @@
     "1": "St.Gallen",
     "2": "Thurgau",
     "3": "Zürich",
-    "4": "Graubünden"
+    "4": "Graubünden",
+    "5": "Appenzell Ausserrhoden"
   },
   "EXPORTS": {
     "ENTITY_TYPES": {
@@ -120,6 +122,7 @@
     "simpleMlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen, Punkte, Apostrophe, Bindestriche und Zeilenumbrüche enthält.",
     "complexSlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen und die folgenden Symbole enthält: _ ! ? + - @ , . : ' ( ) [ ]  / — \" « » ; & – ` ´ ’ ‘ * % = ±",
     "complexMlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen, Zeilenumbrüche und die folgenden Symbole enthält: _ ! ? + - @ , . : ' ( ) [ ] / — \" « » ; & – ` ´ ’ ‘ * % = ±",
-    "untrimmed": "Bitte entfernen Sie führende oder nachgestellte Leerzeichen."
+    "untrimmed": "Bitte entfernen Sie führende oder nachgestellte Leerzeichen.",
+    "httpsUrl": "Bitte geben Sie eine gültige HTTPS-URL ein."
   }
 }

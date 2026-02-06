@@ -37,6 +37,7 @@ export class EnvironmentChipComponent {
       case Environments.sta:
       case Environments.uat:
       case Environments.bbt:
+      case Environments.edu:
         this.color = '#ffa000'; // warning
         this.foregroundColor = 'dark';
         break;

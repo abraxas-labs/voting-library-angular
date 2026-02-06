@@ -111,4 +111,20 @@ export class InputValidators {
     const valid = InputValidators.complexMlTextRegex.test(value);
     return !valid ? { complexMlText: true } : null;
   }
+
+  public static httpsUrl(control: AbstractControl): ValidationErrors | null {
+    const value = control.value as string;
+    if (!value) {
+      return null;
+    }
+
+    let valid;
+    try {
+      const url = new URL(value);
+      valid = url.protocol === 'https:';
+    } catch {
+      valid = false;
+    }
+    return !valid ? { httpsUrl: true } : null;
+  }
 }
