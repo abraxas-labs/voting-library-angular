@@ -1,0 +1,172 @@
+@use '../../style/color' as *;
+
+$border-color: $color-border-soft;
+$border-color-hover: $color-border-focus;
+$border-color-error: $color-border-error;
+$label-color: $color-text-secondary;
+$readonly-bg: $color-surface-bg-neutral;
+
+.markdown-editor-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+
+  .markdown-toolbar {
+    display: flex;
+    margin: 0;
+    min-inline-size: 0;
+    gap: 2px;
+    padding: 4px;
+    border: 1px solid $border-color;
+    border-bottom: none;
+    border-radius: 3px 3px 0 0;
+    background: $color-surface-bg-neutral;
+
+    .markdown-toolbar-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      background: transparent;
+      cursor: pointer;
+      font-size: 14px;
+      color: $color-text-secondary;
+      transition: all 0.15s ease;
+
+      &:hover {
+        background: $color-surface-bg-neutral-dim;
+        border-color: $color-border-soft;
+      }
+
+      &.active {
+        background: $color-surface-bg-neutral-dim;
+        border-color: $color-border-secondary;
+        color: $color-text-secondary;
+      }
+    }
+  }
+
+  .markdown-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $border-color;
+    border-radius: 0 0 3px 3px;
+    overflow-y: auto;
+    cursor: text;
+    transition:
+      border-color 0.15s ease,
+      box-shadow 0.15s ease;
+
+    &:hover {
+      border-color: $border-color-hover;
+    }
+
+    &.focused {
+      border-color: $border-color-hover;
+      box-shadow: inset 0 0 0 1px $border-color-hover;
+    }
+
+    // When toolbar is absent (readonly), use full border-radius
+    &.no-toolbar {
+      border-radius: 3px;
+    }
+
+    // Ensure Milkdown wrapper elements stretch to fill the container
+    ::ng-deep > * {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    ::ng-deep [class~='ProseMirror'] {
+      outline: none;
+      white-space: pre-wrap;
+      font-size: 16px;
+      font-weight: 400;
+      flex: 1;
+      padding: 10px 12px 13px;
+
+      ul,
+      ol {
+        margin: 0 0 0.5em;
+        padding-inline-start: 1.5em;
+      }
+
+      ul {
+        list-style: disc;
+      }
+
+      ol {
+        list-style: decimal;
+      }
+
+      li {
+        margin: 0;
+      }
+
+      p {
+        margin: 0 0 0.5em;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      sup {
+        vertical-align: super;
+        font-size: 0.75em;
+      }
+
+      s,
+      del {
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  &.markdown-readonly {
+    .markdown-container {
+      background: $readonly-bg;
+      border-color: $color-border-soft;
+      border-radius: 3px;
+
+      &:where(:hover),
+      &.focused {
+        border-color: $color-border-focus;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &.markdown-error {
+    .markdown-container {
+      border-color: $border-color-error;
+
+      &:hover,
+      &.focused {
+        border-color: $border-color-error;
+        box-shadow: inset 0 0 0 1px $border-color-error;
+      }
+    }
+
+    .markdown-toolbar {
+      border-color: $border-color-error;
+    }
+
+    .markdown-label {
+      color: $border-color-error;
+    }
+  }
+
+  .markdown-errors {
+    padding-top: 4px;
+
+    bc-error {
+      font-size: 13px;
+    }
+  }
+}

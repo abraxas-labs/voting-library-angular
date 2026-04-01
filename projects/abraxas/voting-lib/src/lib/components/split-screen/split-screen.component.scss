@@ -1,4 +1,4 @@
-@import '../../style/color';
+@use '../../style/color' as *;
 
 :host {
   display: block;
@@ -23,12 +23,12 @@
     .bars {
       user-select: none;
       font-size: 12px;
-      color: $color-grey-5;
+      color: $color-border-soft;
     }
 
     .line {
       flex-shrink: 0;
-      background-color: $color-grey-5;
+      background-color: $color-border-soft;
     }
   }
 

@@ -1,8 +1,8 @@
-@import '../../style/color';
+@use '../../style/color' as *;
 
 .sidebar {
   position: absolute;
-  background-color: $color-grey-7;
+  background-color: $color-surface-bg-neutral-bright;
   top: 0;
   right: 0;
   bottom: 0;

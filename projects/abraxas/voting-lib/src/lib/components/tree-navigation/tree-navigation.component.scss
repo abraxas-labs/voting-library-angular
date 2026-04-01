@@ -1,8 +1,8 @@
-@import '../../style/color';
+@use '../../style/color' as *;
 
 .node-navigation {
   .node-row {
-    color: $color-primary;
+    color: $color-text-brand;
     font-weight: normal;
     padding: 0.5rem 0;
     display: flex;
@@ -15,7 +15,7 @@
     }
 
     &:hover {
-      background-color: rgba($color-black, 0.05);
+      background-color: $color-action-hover;
     }
 
     label {
@@ -43,7 +43,7 @@
 
   .selected {
     font-weight: bold;
-    border-left: 0.4rem solid $color-primary;
-    background-color: rgba($color-black, 0.05);
+    border-left: 0.4rem solid $color-primary-40;
+    background-color: $color-action-selection;
   }
 }

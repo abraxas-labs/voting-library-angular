@@ -1,4 +1,4 @@
-@import '../../style/spacing';
+@use '../../style/spacing' as *;
 
 :host {
   position: relative;

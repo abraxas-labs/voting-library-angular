@@ -1,15 +1,19 @@
-<div class="dialog">
-  @if (contentLoading) {
-    <h1><bc-spinner size="2.5rem" class="mr-1"></bc-spinner>{{ 'COMMON.LOADING' | translate }}</h1>
-  } @else {
-    <div class="dialog-header">
-      <ng-content select="[header]"></ng-content>
+@if (contentLoading) {
+  <div class="loading">
+    <bc-spinner></bc-spinner>
+    <span>{{ 'COMMON.LOADING' | translate }}</span>
+  </div>
+} @else {
+  <bc-dialog>
+    <div header>
+      <bc-icon-button (buttonClick)="dialogClose.emit()" variant="tertiary" icon="cancel"></bc-icon-button>
+      <h2 class="mb-0 mr-2">{{ header | translate }}</h2>
     </div>
-    <div class="dialog-content">
-      <ng-content select="[content]"></ng-content>
-    </div>
-    <div class="dialog-footer">
+
+    <ng-content select="[content]"></ng-content>
+
+    <div buttons class="dialog-footer">
       <ng-content select="[footer]"></ng-content>
     </div>
-  }
-</div>
+  </bc-dialog>
+}

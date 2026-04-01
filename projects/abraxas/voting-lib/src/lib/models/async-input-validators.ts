@@ -11,11 +11,12 @@ import { InputValidators } from './input-validators';
 
 // Use an async validator with debounce to avoid invalid state caused by space entry and trim validation.
 export class AsyncInputValidators {
-  public static simpleSlTextRegex = InputValidators.simpleSlTextRegex;
-  public static simpleMlTextRegex: RegExp = InputValidators.simpleMlTextRegex;
-  public static complexSlTextRegex: RegExp = InputValidators.complexSlTextRegex;
-  public static complexMlTextRegex: RegExp = InputValidators.complexMlTextRegex;
-  public static untrimmedRegex: RegExp = /(^\s)|(\s$)/;
+  public static readonly simpleSlTextRegex = InputValidators.simpleSlTextRegex;
+  public static readonly simpleMlTextRegex: RegExp = InputValidators.simpleMlTextRegex;
+  public static readonly complexSlTextRegex: RegExp = InputValidators.complexSlTextRegex;
+  public static readonly complexMlTextRegex: RegExp = InputValidators.complexMlTextRegex;
+  public static readonly markdownTextRegex: RegExp = InputValidators.markdownTextRegex;
+  public static readonly untrimmedRegex: RegExp = /(^\s)|(\s$)/;
 
   private static validationDebounce: number = 500;
 
@@ -102,6 +103,21 @@ export class AsyncInputValidators {
           : untrimmed
             ? { untrimmed: true }
             : null;
+        return of(result);
+      }),
+    );
+  }
+
+  public static markdownText(control: AbstractControl): Observable<ValidationErrors | null> {
+    return timer(AsyncInputValidators.validationDebounce).pipe(
+      switchMap(() => {
+        const value = control.value as string;
+        if (!value) {
+          return of(null);
+        }
+
+        const valid = AsyncInputValidators.markdownTextRegex.test(value);
+        const result = !valid ? { markdownText: true } : null;
         return of(result);
       }),
     );

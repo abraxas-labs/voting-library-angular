@@ -1,33 +1,9 @@
-$dialog-header-height: 45px;
-$dialog-footer-height: 50px;
-
-:host {
-  display: block;
-  max-width: 100%;
+.dialog-footer {
+  flex-grow: 1;
 }
 
-.dialog {
+.loading {
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  position: relative;
-  margin: 1.5rem;
-
-  .dialog-header {
-    height: $dialog-header-height;
-  }
-
-  .dialog-content {
-    padding: 0 24px;
-    margin: 0 -24px;
-
-    // max-height dialog - header - footer - padding - extra
-    max-height: calc(90vh - #{$dialog-header-height} - #{$dialog-footer-height} - 48px - 10px);
-    max-width: 80vw;
-    overflow-y: auto;
-  }
-
-  .dialog-footer {
-    height: $dialog-footer-height;
-  }
+  gap: 0.5rem;
+  margin: 2rem;
 }

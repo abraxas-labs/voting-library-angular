@@ -1,14 +1,16 @@
-<vo-lib-dialog>
-  <h3 header>{{ title | translate }}</h3>
+<bc-dialog>
+  <div header>
+    <bc-icon-button (buttonClick)="cancel()" variant="tertiary" icon="cancel"></bc-icon-button>
+    <h3 class="mb-0">{{ title | translate }}</h3>
+  </div>
 
-  <div content>
+  <div>
     <p>{{ message | translate }}</p>
   </div>
-
-  <div footer class="buttons" [class.align-right]="!showCancel">
+  <div buttons>
     @if (showCancel) {
-      <bc-button (buttonClick)="cancel()" [label]="cancelText | translate"></bc-button>
+      <bc-button class="mr-2" (buttonClick)="cancel()" [label]="cancelText | translate" variant="tertiary"></bc-button>
     }
-    <bc-button variant="primary" (buttonClick)="confirm()" [label]="confirmText | translate"></bc-button>
+    <bc-button cdkFocusInitial variant="primary" (buttonClick)="confirm()" [label]="confirmText | translate"></bc-button>
   </div>
-</vo-lib-dialog>
+</bc-dialog>

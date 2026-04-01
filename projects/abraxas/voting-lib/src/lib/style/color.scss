@@ -8,70 +8,51 @@
   @return var(--color-#{$name});
 }
 
-$color-primary: theme-color('primary');
+$color-text-primary: theme-color('text-primary');
+$color-text-secondary: theme-color('text-secondary');
+$color-text-brand: theme-color('text-brand');
+$color-text-inverse: theme-color('text-inverse');
 
-$color-primary-10: theme-color('primary-10');
-$color-primary-20: theme-color('primary-20');
-$color-primary-25: theme-color('primary-25');
-$color-primary-50: theme-color('primary-50');
+$color-action-hover: theme-color('action-hover');
+$color-action-selection: theme-color('action-selection');
+$color-action-on-bg: theme-color('action-on-bg');
+
+$color-primary-40: theme-color('primary-40');
 $color-primary-70: theme-color('primary-70');
-$color-primary-75: theme-color('primary-75');
+$color-primary-80: theme-color('primary-80');
+$color-primary-95: theme-color('primary-95');
 
-$color-error: theme-color('error');
-$color-success: theme-color('success');
-$color-warning: theme-color('warning');
-$color-info: theme-color('info');
+$color-secondary-20: theme-color('secondary-20');
 
-$color-error-10: theme-color('error-10');
-$color-success-10: theme-color('success-10');
-$color-warning-10: theme-color('warning-10');
-$color-info-10: theme-color('info-10');
+$color-neutral-100: theme-color('neutral-100');
 
-$color-error-25: theme-color('error-25');
-$color-success-25: theme-color('success-25');
-$color-warning-25: theme-color('warning-25');
-$color-info-25: theme-color('info-25');
+$color-border-primary: theme-color('border-primary');
+$color-border-secondary: theme-color('border-secondary');
+$color-border-soft: theme-color('border-soft');
+$color-border-error: theme-color('border-error');
+$color-border-focus: theme-color('border-focus');
 
-// Defines the CSS variable values
-@mixin theme-colors($theme-palette: ()) {
-  $theme-palette: map.deep-merge(default.$default-palette, $theme-palette);
-  $theme-color-primary: map.get($theme-palette, core, primary);
-  $theme-color-error: map.get($theme-palette, signal, error);
-  $theme-color-success: map.get($theme-palette, signal, success);
-  $theme-color-info: map.get($theme-palette, signal, info);
-  $theme-color-warning: map.get($theme-palette, signal, warning);
+$color-surface-bg-primary: theme-color('surface-bg-primary');
+$color-surface-bg-primary-bright: theme-color('surface-bg-primary-bright');
+$color-surface-bg-primary-inverse: theme-color('surface-bg-primary-inverse');
+$color-surface-bg-neutral: theme-color('surface-bg-neutral');
+$color-surface-bg-neutral-bright: theme-color('surface-bg-neutral-bright');
+$color-surface-bg-neutral-dim: theme-color('surface-bg-neutral-dim');
+$color-surface-bg-neutral-inverse: theme-color('surface-bg-neutral-inverse');
+$color-surface-bg-neutral-full: theme-color('surface-bg-neutral-full');
 
-  --color-primary: #{$theme-color-primary};
-  --color-primary-10: #{settings.tint($theme-color-primary, 10%)};
-  --color-primary-20: #{settings.tint($theme-color-primary, 20%)};
-  --color-primary-25: #{settings.tint($theme-color-primary, 25%)};
-  --color-primary-50: #{settings.tint($theme-color-primary, 50%)};
-  --color-primary-70: #{settings.tint($theme-color-primary, 70%)};
-  --color-primary-75: #{settings.tint($theme-color-primary, 75%)};
-  --color-error: #{$theme-color-error};
-  --color-error-10: #{settings.tint($theme-color-error, 10%)};
-  --color-error-25: #{settings.tint($theme-color-error, 25%)};
-  --color-success: #{$theme-color-success};
-  --color-success-10: #{settings.tint($theme-color-success, 10%)};
-  --color-success-25: #{settings.tint($theme-color-success, 25%)};
-  --color-info: #{$theme-color-info};
-  --color-info-10: #{settings.tint($theme-color-info, 10%)};
-  --color-info-25: #{settings.tint($theme-color-info, 25%)};
-  --color-warning: #{$theme-color-warning};
-  --color-warning-10: #{settings.tint($theme-color-warning, 10%)};
-  --color-warning-25: #{settings.tint($theme-color-warning, 25%)};
-}
+$color-signal-success: theme-color('signal-success');
+$color-signal-success-light: theme-color('signal-success-light');
+$color-signal-error: theme-color('signal-error');
+$color-signal-error-light: theme-color('signal-error-light');
+$color-signal-error-action-inverse: theme-color('signal-error-action-inverse');
+$color-signal-warning: theme-color('signal-warning');
+$color-signal-warning-light: theme-color('signal-warning-light');
+$color-signal-info: theme-color('signal-info');
+$color-signal-info-light: theme-color('signal-info-light');
 
-// legacy colors
-$color-grey-1: #232323;
-$color-grey-2: #575757;
-$color-grey-3: #777;
-$color-grey-4: #a1a1a1;
-$color-grey-5: #ccc;
-$color-grey-7: #f7f7f7;
-$color-grey-6: #e0e0e0;
-$color-white: #fff;
-$color-black: #000;
+$color-disabled-default: theme-color('disabled-default');
+$color-disabled-light: theme-color('disabled-light');
 
 $states: (
   // initial
@@ -93,6 +74,6 @@ $states: (
 @each $name, $color in $states {
   .result-state-#{$name} {
     background-color: $color;
-    color: $color-grey-1;
+    color: $color-text-primary;
   }
 }

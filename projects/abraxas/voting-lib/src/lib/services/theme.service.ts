@@ -4,15 +4,16 @@
  * For license information see LICENSE file.
  */
 
-import { Injectable, Renderer2, RendererFactory2, inject } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { ColorTokensThemes, StylingService } from '@abraxas/base-components';
 
-const supportedThemes = ['default', 'sg'];
 const defaultTheme = 'default';
+const sgTheme = 'sg';
+const supportedThemes = [defaultTheme, sgTheme];
 const customThemeLogoMapping: Record<string, string> = {
   sg: 'assets/voting-lib/whitelabeling-logos/sg.svg',
 };
-const themeAttributeName = 'data-theme';
 const storageKey = 'last-used-theme';
 
 @Injectable({
@@ -21,15 +22,10 @@ const storageKey = 'last-used-theme';
 export class ThemeService {
   public static readonly NoTheme = '-';
 
-  private readonly renderer: Renderer2;
+  private readonly stylingService = inject(StylingService);
+
   public readonly theme$ = new BehaviorSubject<string | undefined>(undefined);
   public readonly logo$ = new BehaviorSubject<string | undefined>(undefined);
-
-  constructor() {
-    const rendererFactory = inject(RendererFactory2);
-
-    this.renderer = rendererFactory.createRenderer(null, null);
-  }
 
   public trySetTheme(theme: string): boolean {
     // No theme was explicitly set. Try to load the last used theme
@@ -46,8 +42,15 @@ export class ThemeService {
       result = false;
     }
 
+    if (theme === sgTheme) {
+      this.stylingService.setTheme(ColorTokensThemes.SGKantonLight);
+    } else if (theme === defaultTheme) {
+      this.stylingService.setTheme(ColorTokensThemes.AbraxasLight);
+    } else {
+      this.stylingService.setTheme(theme);
+    }
+
     if (theme !== this.theme$.value) {
-      this.renderer.setAttribute(document.documentElement, themeAttributeName, theme);
       this.theme$.next(theme);
       localStorage.setItem(storageKey, theme);
 

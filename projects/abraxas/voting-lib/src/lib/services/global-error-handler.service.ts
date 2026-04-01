@@ -92,7 +92,7 @@ export class GlobalErrorHandler implements ErrorHandler {
   }
 
   protected buildErrorMessage(code: number, errorType: string): { title: string; message: string } {
-    const params = { detail: `Code: ${code ?? ''}`, code, errorType };
+    const params = { detail: `Code: ${code ?? 'unknown'}, Details: ${errorType ?? 'unknown'}` };
     const title = this.tryTranslationKeys(params, `ERRORS.${errorType}.TITLE`, `ERRORS.${code}.TITLE`, 'ERRORS.GENERIC.TITLE');
 
     const message = this.tryTranslationKeys(
@@ -100,7 +100,7 @@ export class GlobalErrorHandler implements ErrorHandler {
       `ERRORS.${errorType}.MESSAGE`,
       `ERROR_MESSAGES.${errorType}`, // legacy messages
       `ERRORS.${code}.MESSAGE`,
-      'ERRORS.GENERIC.TITLE',
+      'ERRORS.GENERIC.MESSAGE',
     );
     return { title, message };
   }

@@ -32,6 +32,8 @@ export * from './lib/components/icon-text/icon-text.component';
 export * from './lib/components/dialog/confirm-dialog/confirm-dialog.component';
 export * from './lib/components/split-screen/split-screen.component';
 export * from './lib/components/not-found-page/not-found-page.component';
+export * from './lib/components/markdown-editor/markdown-editor.component';
+export * from './lib/components/markdown-preview/markdown-preview.component';
 
 /**
  * directives
@@ -92,4 +94,5 @@ export * from './lib/tokens';
 export * from './lib/models/input-validators';
 export * from './lib/models/async-input-validators';
 export * from './lib/models/language.model';
+export * from './lib/models/markdown.model';
 export * from './lib/services/validiation-messages.provider';

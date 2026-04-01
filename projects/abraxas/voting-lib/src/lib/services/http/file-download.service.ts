@@ -29,6 +29,11 @@ export class FileDownloadService {
     this.saveFile(response);
   }
 
+  public async getDownloadFile(url: string): Promise<void> {
+    const response = await firstValueFrom(this.http.get(url, { responseType: 'blob', observe: 'response' }));
+    this.saveFile(response);
+  }
+
   private saveFile(response: HttpResponse<Blob>): void {
     const contentType = response.headers.get(contentTypeKey);
     const filename = this.getFilename(response);

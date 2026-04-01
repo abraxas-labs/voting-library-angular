@@ -1,4 +1,4 @@
-# ✨ Changelog (`v5.13.1`)
+# ✨ Changelog (`v5.17.3`)
 
 All notable changes to this project will be documented in this file.
 
@@ -8,11 +8,71 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Info
 
 ```text
-This version -------- v5.13.1
-Previous version ---- v5.11.4
+This version -------- v5.17.3
+Previous version ---- v5.13.1
 Initial version ----- v1.28.0
-Total commits ------- 7
+Total commits ------- 10
 ```
+
+## [v5.17.3] - 2026-03-31
+
+### 🔄 Changed
+
+- add color
+
+## [v5.17.2] - 2026-03-27
+
+### 🆕 Added
+
+- add colors
+
+## [v5.17.1] - 2026-03-25
+
+### 🔄 Changed
+
+- add colors and add icon button for sidebar
+
+## [v5.17.0] - 2026-03-24
+
+### 🔄 Changed
+
+- change theming service to styling service
+
+## [v5.16.1] - 2026-03-11
+
+### 🔄 Changed
+
+- improve generic error message
+
+## [v5.16.0] - 2026-03-10
+
+### 🔄 Changed
+
+- angular 21 update
+
+## [v5.15.1] - 2026-03-04
+
+### 🔄 Changed
+
+- fix(VOTING-6729): translate markdown error message
+
+## [v5.15.0] - 2026-03-04
+
+### 🔄 Changed
+
+- feat(VOTING-6729): markdown editor accessibility
+
+## [v5.14.0] - 2026-03-04
+
+### 🆕 Added
+
+- feat(VOTING-6729): add markdown
+
+## [v5.13.2] - 2026-02-13
+
+### 🆕 Added
+
+- add get download file
 
 ## [v5.13.1] - 2026-02-06
 

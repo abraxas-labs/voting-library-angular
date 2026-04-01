@@ -77,6 +77,13 @@
     "TITLE": "Seite nicht gefunden (Error 404)",
     "SUB_TITLE": "Leider können wir die von Ihnen gesuchte Seite nicht finden."
   },
+  "MARKDOWN_EDITOR": {
+    "TOOLBAR": "Formatierungsoptionen",
+    "BOLD": "Fett (Ctrl+B)",
+    "ITALIC": "Kursiv (Ctrl+I)",
+    "SUPERSCRIPT": "Hochgestellt",
+    "STRIKETHROUGH": "Durchgestrichen"
+  },
   "ERRORS": {
     "GENERIC": {
       "TITLE": "Fehler",
@@ -122,6 +129,7 @@
     "simpleMlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen, Punkte, Apostrophe, Bindestriche und Zeilenumbrüche enthält.",
     "complexSlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen und die folgenden Symbole enthält: _ ! ? + - @ , . : ' ( ) [ ]  / — \" « » ; & – ` ´ ’ ‘ * % = ±",
     "complexMlText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen, Zeilenumbrüche und die folgenden Symbole enthält: _ ! ? + - @ , . : ' ( ) [ ] / — \" « » ; & – ` ´ ’ ‘ * % = ±",
+    "markdownText": "Bitte geben Sie Text ein, der nur Buchstaben, Zahlen, Leerzeichen, Zeilenumbrüche und die folgenden Symbole enthält: _ ! ? + - @ , . : ' ( ) [ ] / — \" « » ; & – ` ´ ’ ‘ * % = ±",
     "untrimmed": "Bitte entfernen Sie führende oder nachgestellte Leerzeichen.",
     "httpsUrl": "Bitte geben Sie eine gültige HTTPS-URL ein."
   }

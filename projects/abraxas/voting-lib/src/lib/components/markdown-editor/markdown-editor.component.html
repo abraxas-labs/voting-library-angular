@@ -1,0 +1,99 @@
+<div class="markdown-editor-wrapper" [class.markdown-readonly]="readonly" [class.markdown-error]="error">
+  @if (label) {
+    <bc-label
+      [id]="'markdown-editor-label-' + instanceId"
+      [label]="label | translate"
+      [optional]="!required"
+      [optionalText]="optionalText"
+      [error]="error"
+    ></bc-label>
+  }
+
+  @if (!readonly) {
+    <fieldset
+      class="markdown-toolbar"
+      [attr.aria-label]="'MARKDOWN_EDITOR.TOOLBAR' | translate"
+      [attr.aria-controls]="'markdown-editor-content-' + instanceId"
+    >
+      <!-- mousedown override is required to keep focus & selection in the editor -->
+      @if (isFormattingOptionEnabled('bold')) {
+        <button
+          [tooltip]="'MARKDOWN_EDITOR.BOLD' | translate"
+          class="markdown-toolbar-btn"
+          [class.active]="boldActive"
+          [attr.aria-label]="'MARKDOWN_EDITOR.BOLD' | translate"
+          [attr.aria-pressed]="boldActive"
+          (mousedown)="$event.preventDefault()"
+          (click)="toggleBold()"
+        >
+          <strong aria-hidden="true">B</strong>
+        </button>
+      }
+
+      @if (isFormattingOptionEnabled('italic')) {
+        <button
+          [tooltip]="'MARKDOWN_EDITOR.ITALIC' | translate"
+          class="markdown-toolbar-btn"
+          [class.active]="italicActive"
+          [attr.aria-label]="'MARKDOWN_EDITOR.ITALIC' | translate"
+          [attr.aria-pressed]="italicActive"
+          (mousedown)="$event.preventDefault()"
+          (click)="toggleItalic()"
+        >
+          <em aria-hidden="true">I</em>
+        </button>
+      }
+
+      @if (isFormattingOptionEnabled('superscript')) {
+        <button
+          [tooltip]="'MARKDOWN_EDITOR.SUPERSCRIPT' | translate"
+          class="markdown-toolbar-btn"
+          [class.active]="superscriptActive"
+          [attr.aria-label]="'MARKDOWN_EDITOR.SUPERSCRIPT' | translate"
+          [attr.aria-pressed]="superscriptActive"
+          (mousedown)="$event.preventDefault()"
+          (click)="toggleSuperscript()"
+        >
+          <span aria-hidden="true">X<sup>2</sup></span>
+        </button>
+      }
+
+      @if (isFormattingOptionEnabled('strikethrough')) {
+        <button
+          [tooltip]="'MARKDOWN_EDITOR.STRIKETHROUGH' | translate"
+          class="markdown-toolbar-btn"
+          [class.active]="strikethroughActive"
+          [attr.aria-label]="'MARKDOWN_EDITOR.STRIKETHROUGH' | translate"
+          [attr.aria-pressed]="strikethroughActive"
+          (mousedown)="$event.preventDefault()"
+          (click)="toggleStrikethrough()"
+        >
+          <s aria-hidden="true">S</s>
+        </button>
+      }
+    </fieldset>
+  }
+
+  <div
+    #editorContainer
+    [id]="'markdown-editor-content-' + instanceId"
+    class="markdown-container"
+    [class.focused]="focused"
+    [class.no-toolbar]="readonly"
+    [style.min-height.rem]="rows"
+    [attr.aria-labelledby]="label ? 'markdown-editor-label-' + instanceId : null"
+    [attr.aria-describedby]="error && showDefaultErrors && errorMessages.length > 0 ? 'markdown-editor-errors-' + instanceId : null"
+    [attr.aria-invalid]="error || null"
+    [attr.aria-required]="required || null"
+    [attr.aria-readonly]="readonly || null"
+    (click)="onContainerClick($event)"
+  ></div>
+
+  @if (error && showDefaultErrors && errorMessages.length > 0) {
+    <div [id]="'markdown-editor-errors-' + instanceId" class="markdown-errors" role="alert" aria-live="polite">
+      @for (msg of errorMessages; track msg) {
+        <bc-error>{{ msg }}</bc-error>
+      }
+    </div>
+  }
+</div>

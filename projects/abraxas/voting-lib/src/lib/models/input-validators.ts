@@ -12,15 +12,17 @@ import { AbstractControl, ValidationErrors } from '@angular/forms';
  * To include trimmed support, use async variants.
  */
 export class InputValidators {
-  public static phoneRegex: RegExp = /^\+?(?:[1-9]\s*){0,3}\s?(?:[0-9]\s?){7,14}$/;
-  public static numericRegex: RegExp = /^\d+$/;
-  public static alphaRegex: RegExp = /^[\p{L}\p{M}]+$/u;
-  public static alphaWhiteRegex: RegExp = /^[\p{L}\p{M} ]+$/u;
-  public static alphaNumWhiteRegex: RegExp = /^[\p{L}\p{M}\p{Nd} ]+$/u;
-  public static simpleSlTextRegex: RegExp = /^[\p{L}\p{M}\p{Nd} .'-]+$/u;
-  public static simpleMlTextRegex: RegExp = /^[\p{L}\p{M}\p{Nd} .'\-\r\n]+$/u;
-  public static complexSlTextRegex: RegExp = /^[\p{L}\p{M}\p{Nd} _!?+\-@,\.:'()\/—'"«»;&–`´’‘+*%=§\[\]±]+$/u;
-  public static complexMlTextRegex: RegExp = /^[\p{L}\p{M}\p{Nd}\r\n _!?+\-@,\.:'()\/—'"«»;&–`´’‘+*%=§\[\]±]+$/u;
+  public static readonly phoneRegex: RegExp = /^\+?(?:[1-9]\s*){0,3}\s?(?:\d\s?){7,14}$/;
+  public static readonly numericRegex: RegExp = /^\d+$/;
+  public static readonly alphaRegex: RegExp = /^[\p{L}\p{M}]+$/u;
+  public static readonly alphaWhiteRegex: RegExp = /^[\p{L}\p{M} ]+$/u;
+  public static readonly alphaNumWhiteRegex: RegExp = /^[\p{L}\p{M}\p{Nd} ]+$/u;
+  public static readonly simpleSlTextRegex: RegExp = /^[\p{L}\p{M}\p{Nd} .'-]+$/u;
+  public static readonly simpleMlTextRegex: RegExp = /^[\p{L}\p{M}\p{Nd} .'\-\r\n]+$/u;
+  public static readonly complexSlTextRegex: RegExp = /^[\p{L}\p{M}\p{Nd} _!?+\-@,.:()/—'"«»;&–`´’‘*%=§\x5B\x5D±]+$/u;
+  public static readonly complexMlTextRegex: RegExp = /^[\p{L}\p{M}\p{Nd}\r\n _!?+\-@,.:()/—'"«»;&–`´’‘*%=§\x5B\x5D±]+$/u;
+  public static readonly markdownTextRegex: RegExp =
+    /^(?:[\p{L}\p{M}\p{Nd}\r\n\t _!?+\-@,.:()/\\—'"«»;&–`´’‘*%=§\x5B\x5D±~]|<br>|<br\s*\/>|<sup>|<\/sup>)+$/u;
 
   public static phone(control: AbstractControl): ValidationErrors | null {
     const value = control.value as string;
@@ -110,6 +112,16 @@ export class InputValidators {
 
     const valid = InputValidators.complexMlTextRegex.test(value);
     return !valid ? { complexMlText: true } : null;
+  }
+
+  public static markdownText(control: AbstractControl): ValidationErrors | null {
+    const value = control.value as string;
+    if (!value) {
+      return null;
+    }
+
+    const valid = InputValidators.markdownTextRegex.test(value);
+    return !valid ? { markdownText: true } : null;
   }
 
   public static httpsUrl(control: AbstractControl): ValidationErrors | null {

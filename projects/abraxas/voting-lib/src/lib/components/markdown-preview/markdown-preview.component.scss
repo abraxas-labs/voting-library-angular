@@ -1,0 +1,24 @@
+// keep in sync with the markdown-editor
+.markdown-container ::ng-deep {
+  ul,
+  ol {
+    margin: 0 0 0.5em;
+    padding-inline-start: 1.5em;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  p {
+    margin-bottom: 0.5em !important;
+  }
+}

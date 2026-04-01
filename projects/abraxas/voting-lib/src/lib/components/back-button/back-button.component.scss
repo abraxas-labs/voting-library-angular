@@ -1,8 +1,8 @@
-@import '../../style/color';
+@use '../../style/color' as *;
 
 .back {
   cursor: pointer;
-  color: $color-primary;
+  color: $color-text-brand;
 
   &:hover {
     text-decoration: underline;

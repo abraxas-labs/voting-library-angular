@@ -1,9 +1,9 @@
-@import '../../style/color';
+@use '../../style/color' as *;
 
 .header-container {
   padding: 0 1rem 0 3.8rem;
   margin: 0;
-  border-bottom: 1px solid $color-grey-6;
+  border-bottom: 1px solid $color-border-soft;
   box-sizing: border-box;
   min-height: 3rem;
   display: grid;
@@ -17,7 +17,7 @@
   > * {
     display: flex;
     align-items: center;
-    color: $color-grey-3;
+    color: $color-text-secondary;
 
     &[center] {
       font-size: 1.1rem;

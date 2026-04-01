@@ -4,7 +4,7 @@
  * For license information see LICENSE file.
  */
 
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'vo-lib-dialog',
@@ -15,4 +15,10 @@ import { Component, Input } from '@angular/core';
 export class DialogComponent {
   @Input()
   public contentLoading: boolean = false;
+
+  @Input()
+  public header: string = '';
+
+  @Output()
+  public dialogClose: EventEmitter<void> = new EventEmitter();
 }
