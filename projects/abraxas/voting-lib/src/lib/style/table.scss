@@ -1,12 +1,16 @@
 @mixin truncate-long-sortable-table-header {
-  .bc-header-sort-container .bc-header-sort-content {
-    max-width: 100%;
+  .bc-header-sort-container {
+    max-width: calc(100% - 30px); // Leave some space for the sort indicators
 
-    span {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      word-break: break-all;
-      white-space: nowrap;
+    .bc-header-sort-content {
+      max-width: 100%;
+
+      span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        white-space: nowrap;
+      }
     }
   }
 }
@@ -14,6 +18,8 @@
 // there is more space for the table header since the sort order box does not need to be displayed for a simple sort
 @mixin truncate-long-simple-sortable-table-header {
   .bc-header-sort-container {
+    max-width: calc(100% - 18px); // Leave some space for the sort indicators
+
     .bc-header-sort-content {
       max-width: 100%;
 

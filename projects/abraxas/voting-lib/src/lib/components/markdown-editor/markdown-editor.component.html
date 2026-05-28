@@ -81,11 +81,6 @@
     [class.focused]="focused"
     [class.no-toolbar]="readonly"
     [style.min-height.rem]="rows"
-    [attr.aria-labelledby]="label ? 'markdown-editor-label-' + instanceId : null"
-    [attr.aria-describedby]="error && showDefaultErrors && errorMessages.length > 0 ? 'markdown-editor-errors-' + instanceId : null"
-    [attr.aria-invalid]="error || null"
-    [attr.aria-required]="required || null"
-    [attr.aria-readonly]="readonly || null"
     (click)="onContainerClick($event)"
   ></div>
 

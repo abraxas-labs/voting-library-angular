@@ -130,13 +130,28 @@ export class MarkdownEditorComponent implements AfterViewInit, OnDestroy, OnChan
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
+    if (
+      (changes['readonly'] || changes['label'] || changes['error'] || changes['showDefaultErrors'] || changes['required']) &&
+      this.editor
+    ) {
+      this.updateEditorAttributes();
+    }
+
     if (changes['readonly'] && this.editor) {
       this.updateEditorEditable();
     }
   }
 
   public ngDoCheck(): void {
+    const previousErrorMessages = [...this.errorMessages];
     this.updateErrorMessages();
+
+    if (
+      this.editor &&
+      (previousErrorMessages.length !== this.errorMessages.length || previousErrorMessages.some((msg, i) => msg !== this.errorMessages[i]))
+    ) {
+      this.updateEditorAttributes();
+    }
   }
 
   public ngOnDestroy(): void {
@@ -250,7 +265,45 @@ export class MarkdownEditorComponent implements AfterViewInit, OnDestroy, OnChan
       this.internalUpdate = false;
     }
 
+    this.updateEditorAttributes();
     this.updateEditorEditable();
+  }
+
+  private updateEditorAttributes(): void {
+    this.editor?.action(ctx => {
+      const view = ctx.get(editorViewCtx);
+      const editorDom = view.dom;
+
+      if (this.label) {
+        editorDom.setAttribute('aria-labelledby', `markdown-editor-label-${this.instanceId}`);
+      } else {
+        editorDom.removeAttribute('aria-labelledby');
+      }
+
+      if (this.error && this.showDefaultErrors && this.errorMessages.length > 0) {
+        editorDom.setAttribute('aria-describedby', `markdown-editor-errors-${this.instanceId}`);
+      } else {
+        editorDom.removeAttribute('aria-describedby');
+      }
+
+      if (this.error) {
+        editorDom.setAttribute('aria-invalid', 'true');
+      } else {
+        editorDom.removeAttribute('aria-invalid');
+      }
+
+      if (this.required) {
+        editorDom.setAttribute('aria-required', 'true');
+      } else {
+        editorDom.removeAttribute('aria-required');
+      }
+
+      if (this.readonly) {
+        editorDom.setAttribute('aria-readonly', 'true');
+      } else {
+        editorDom.removeAttribute('aria-readonly');
+      }
+    });
   }
 
   private updateEditorEditable(): void {

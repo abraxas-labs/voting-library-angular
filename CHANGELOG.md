@@ -1,4 +1,4 @@
-# ✨ Changelog (`v5.17.3`)
+# ✨ Changelog (`v5.17.6`)
 
 All notable changes to this project will be documented in this file.
 
@@ -8,11 +8,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Info
 
 ```text
-This version -------- v5.17.3
-Previous version ---- v5.13.1
+This version -------- v5.17.6
+Previous version ---- v5.17.3
 Initial version ----- v1.28.0
-Total commits ------- 10
+Total commits ------- 3
 ```
+
+## [v5.17.6] - 2026-05-27
+
+### 🔄 Changed
+
+- set aria attributes on markdown editor
+
+## [v5.17.5] - 2026-05-21
+
+### 🆕 Added
+
+- add colors and role for markdown-editor
+
+## [v5.17.4] - 2026-04-15
+
+### 🔄 Changed
+
+- fix truncate-long-sortable-table-header mixin
 
 ## [v5.17.3] - 2026-03-31
 
