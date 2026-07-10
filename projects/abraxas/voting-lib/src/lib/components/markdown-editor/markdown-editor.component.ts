@@ -16,11 +16,19 @@ import {
   NgZone,
   OnChanges,
   OnDestroy,
+  OnInit,
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { ErrorModule, LabelModule, TooltipModule, ValidationMessagesIntl } from '@abraxas/base-components';
+import {
+  ErrorModule,
+  HintCountIntl,
+  HintCountVisibleMode,
+  LabelModule,
+  TooltipModule,
+  ValidationMessagesIntl,
+} from '@abraxas/base-components';
 import { TranslatePipe } from '@ngx-translate/core';
 import { CmdKey, commandsCtx, defaultValueCtx, Editor, editorViewCtx, rootCtx } from '@milkdown/kit/core';
 import { commonmark, toggleEmphasisCommand, toggleStrongCommand } from '@milkdown/kit/preset/commonmark';
@@ -40,6 +48,9 @@ import {
   superscriptSchema,
   toggleSuperscriptCommand,
 } from './superscript';
+import { Subject, Subscription } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
+import { MatHint } from '@angular/material/input';
 
 let instanceCounter = 0;
 
@@ -48,18 +59,26 @@ let instanceCounter = 0;
   templateUrl: './markdown-editor.component.html',
   styleUrls: ['./markdown-editor.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TooltipModule, TranslatePipe, ErrorModule, LabelModule],
+  imports: [TooltipModule, TranslatePipe, ErrorModule, LabelModule, MatHint],
 })
-export class MarkdownEditorComponent implements AfterViewInit, OnDestroy, OnChanges, DoCheck, ControlValueAccessor {
+export class MarkdownEditorComponent implements OnInit, AfterViewInit, OnDestroy, OnChanges, DoCheck, ControlValueAccessor {
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly zone = inject(NgZone);
   private readonly validationMessagesIntl = inject(ValidationMessagesIntl);
+  private readonly hintCountIntl = inject(HintCountIntl, { optional: true });
   public readonly ngControl = inject(NgControl, { self: true, optional: true });
   public readonly instanceId = instanceCounter++;
 
   constructor() {
     if (this.ngControl) {
       this.ngControl.valueAccessor = this;
+    }
+
+    if (this.hintCountIntl) {
+      this.hintCountIntlChanges = this.hintCountIntl.changes.subscribe(() => {
+        this.updateCountText();
+        this.cdr.markForCheck();
+      });
     }
   }
 
@@ -93,16 +112,28 @@ export class MarkdownEditorComponent implements AfterViewInit, OnDestroy, OnChan
   @Input()
   public availableFormattingOptions: ReadonlyArray<MarkdownEditorFormattingOption> = DEFAULT_MARKDOWN_EDITOR_FORMATTING_OPTIONS;
 
+  @Input()
+  public maxlength: string | number | null = null;
+
+  @Input()
+  public hintCountVisible: HintCountVisibleMode = 'off';
+
   public boldActive = false;
   public italicActive = false;
   public strikethroughActive = false;
   public superscriptActive = false;
   public focused = false;
   public errorMessages: string[] = [];
+  public countText: string = '';
+  public screenReaderAnnouncement: string = '';
 
   private editor?: Editor;
   private value = '';
   private internalUpdate = false;
+  private hintCountIntlChanges?: Subscription;
+  private screenReaderSubject: Subject<void> = new Subject();
+  private screenReaderDebounceSubscription?: Subscription;
+  private valueChangeSubscription?: Subscription;
 
   private onChange: (value: string) => void = () => {};
 
@@ -110,6 +141,8 @@ export class MarkdownEditorComponent implements AfterViewInit, OnDestroy, OnChan
 
   public writeValue(value: string): void {
     this.value = value ?? '';
+    this.updateCountText();
+    this.triggerScreenReaderAnnouncement();
     if (this.editor) {
       this.internalUpdate = true;
       this.editor.action(replaceAll(this.value));
@@ -123,6 +156,15 @@ export class MarkdownEditorComponent implements AfterViewInit, OnDestroy, OnChan
 
   public registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
+  }
+
+  public ngOnInit(): void {
+    if (this.ngControl && this.ngControl.valueChanges) {
+      this.valueChangeSubscription = this.ngControl.valueChanges.subscribe(() => {
+        this.updateCountText();
+        this.triggerScreenReaderAnnouncement();
+      });
+    }
   }
 
   public ngAfterViewInit(): void {
@@ -156,6 +198,9 @@ export class MarkdownEditorComponent implements AfterViewInit, OnDestroy, OnChan
 
   public ngOnDestroy(): void {
     this.editor?.destroy();
+    this.hintCountIntlChanges?.unsubscribe();
+    this.screenReaderDebounceSubscription?.unsubscribe();
+    this.valueChangeSubscription?.unsubscribe();
   }
 
   public focusEditor(): void {
@@ -207,6 +252,39 @@ export class MarkdownEditorComponent implements AfterViewInit, OnDestroy, OnChan
 
   public isFormattingOptionEnabled(option: MarkdownEditorFormattingOption): boolean {
     return this.availableFormattingOptions.includes(option);
+  }
+
+  protected updateCountText(): void {
+    if (this.hintCountIntl && this.hintCountVisible !== 'off') {
+      this.countText = this.hintCountIntl.getCounterText(
+        this.hintCountVisible,
+        this.value.length,
+        this.maxlength ? Number(this.maxlength) : null,
+      );
+    } else {
+      this.countText = '';
+    }
+  }
+
+  protected triggerScreenReaderAnnouncement(): void {
+    if (!this.hintCountIntl || !this.maxlength) {
+      return;
+    }
+
+    // Unsubscribe from previous debounce to restart the timer
+    if (this.screenReaderDebounceSubscription) {
+      this.screenReaderDebounceSubscription.unsubscribe();
+    }
+
+    // Set up debounced subscription
+    // Set the debounce time to 1000 ms to ensure that the screen reader does not announce every change while typing.
+    this.screenReaderDebounceSubscription = this.screenReaderSubject.pipe(debounceTime(1000)).subscribe(() => {
+      this.screenReaderAnnouncement = this.hintCountIntl!.getScreenReaderAnnouncement(this.value.length, Number(this.maxlength));
+      this.cdr.markForCheck();
+    });
+
+    // Emit the trigger
+    this.screenReaderSubject.next();
   }
 
   private async initEditor(): Promise<void> {
@@ -393,7 +471,10 @@ export class MarkdownEditorComponent implements AfterViewInit, OnDestroy, OnChan
       const errorValue = errors[key];
       const params = this.resolveValidationParams(key, errorValue);
 
-      const message = this.validationMessagesIntl.getMessage(key, params);
+      const message =
+        key === 'required' && this.label
+          ? this.validationMessagesIntl.getMessage('requiredWithLabel', { label: this.label })
+          : this.validationMessagesIntl.getMessage(key, params);
       if (message) {
         messages.push(message);
       }

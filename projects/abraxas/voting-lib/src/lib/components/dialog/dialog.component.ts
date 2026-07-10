@@ -19,6 +19,9 @@ export class DialogComponent {
   @Input()
   public header: string = '';
 
+  @Input()
+  public showCloseButton: boolean = true;
+
   @Output()
   public dialogClose: EventEmitter<void> = new EventEmitter();
 }

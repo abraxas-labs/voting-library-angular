@@ -12,7 +12,7 @@
   },
   "private": true,
   "dependencies": {
-    "@abraxas/base-components": "21.7.3",
+    "@abraxas/base-components": "21.77.0",
     "@abraxas/voting-lib": "file:projects/abraxas/voting-lib",
     "@angular/cdk": "21.2.3",
     "@angular/cdk-experimental": "21.2.3",

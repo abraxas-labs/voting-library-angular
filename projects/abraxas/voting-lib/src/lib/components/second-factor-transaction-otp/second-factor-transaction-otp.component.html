@@ -1,0 +1,27 @@
+<p class="my-0">
+  {{ 'SECOND_FACTOR_TRANSACTION.OTP_INFO' | translate }}
+</p>
+
+<bc-text
+  class="my-2"
+  [maxlength]="6"
+  [placeholder]="'SECOND_FACTOR_TRANSACTION.OTP_PLACEHOLDER' | translate"
+  [autoFocus]="true"
+  [disabled]="isSubmitting"
+  subscriptSizing="dynamic"
+  [(ngModel)]="otpCode"
+  (ngModelChange)="onValueChange($event)"
+/>
+
+@if (isSubmitting) {
+  <bc-spinner class="my-2"></bc-spinner>
+}
+
+@if (hasOtpError) {
+  <bc-alert-bar
+    class="my-3"
+    color="error"
+    [displayDismissAction]="false"
+    [message]="'SECOND_FACTOR_TRANSACTION.OTP_ERROR' | translate"
+  ></bc-alert-bar>
+}

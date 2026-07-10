@@ -1,0 +1,16 @@
+<p class="my-0">
+  {{ 'SECOND_FACTOR_TRANSACTION.INFO' | translate: { correlationCode: nevisInfo?.correlationCode } }}
+</p>
+<div class="my-2">
+  <bc-spinner></bc-spinner>
+  @if (!showNevisQrCode) {
+    <bc-button
+      [variant]="'tertiary'"
+      [label]="'SECOND_FACTOR_TRANSACTION.NO_PUSH_NOTIFICATION' | translate"
+      (buttonClick)="showNevisQrCode = true"
+    ></bc-button>
+  } @else {
+    <p>{{ 'SECOND_FACTOR_TRANSACTION.QR_CODE' | translate }}</p>
+    <img [src]="nevisInfo?.qrCode" [alt]="'SECOND_FACTOR_TRANSACTION.QR_CODE_ALT' | translate" />
+  }
+</div>

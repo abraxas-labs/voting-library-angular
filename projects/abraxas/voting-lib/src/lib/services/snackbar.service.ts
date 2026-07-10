@@ -33,10 +33,6 @@ export class SnackbarService {
     this.messageSubject.next({ message, variant: 'warning' });
   }
 
-  public primary(message: string): void {
-    this.messageSubject.next({ message, variant: 'primary' });
-  }
-
   public basic(message: string): void {
     this.messageSubject.next({ message, variant: 'basic' });
   }
@@ -44,5 +40,5 @@ export class SnackbarService {
 
 export interface SnackbarMessage {
   message: string;
-  variant: 'basic' | 'error' | 'info' | 'primary' | 'success' | 'warning';
+  variant: 'basic' | 'error' | 'info' | 'success' | 'warning';
 }

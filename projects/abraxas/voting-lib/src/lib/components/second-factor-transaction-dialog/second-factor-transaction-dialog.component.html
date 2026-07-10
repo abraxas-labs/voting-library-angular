@@ -5,22 +5,30 @@
   </div>
   <div class="content">
     @if (!hasError) {
-      <p class="my-0">
-        {{ 'SECOND_FACTOR_TRANSACTION.INFO' | translate: { correlationCode } }}
-      </p>
-      @if (!hasError) {
-        <bc-spinner class="my-5" size="large"></bc-spinner>
-      }
-      @if (!showQrCode) {
-        <bc-button
-          class="mb-3"
-          [variant]="'tertiary'"
-          [label]="'SECOND_FACTOR_TRANSACTION.NO_PUSH_NOTIFICATION' | translate"
-          (buttonClick)="showQrCode = true"
-        ></bc-button>
-      } @else {
-        <p>{{ 'SECOND_FACTOR_TRANSACTION.QR_CODE' | translate }}</p>
-        <img [src]="qrCode" [alt]="'SECOND_FACTOR_TRANSACTION.QR_CODE_ALT' | translate" />
+      @switch (activeProvider) {
+        @case (SecondFactorTransactionProvider.NEVIS) {
+          <vo-lib-second-factor-transaction-nevis
+            [nevisInfo]="nevisInfo"
+            [action]="action"
+            (verified)="onVerified()"
+            (errored)="onErrored($event)"
+          ></vo-lib-second-factor-transaction-nevis>
+        }
+        @case (SecondFactorTransactionProvider.OTP) {
+          <vo-lib-second-factor-transaction-otp
+            [action]="action"
+            (verified)="onVerified()"
+            (errored)="onErrored($event)"
+          ></vo-lib-second-factor-transaction-otp>
+        }
+        @default {
+          <bc-alert-bar
+            class="my-3"
+            color="error"
+            [displayDismissAction]="false"
+            [message]="'SECOND_FACTOR_TRANSACTION.NO_PROVIDER_AVAILABLE' | translate"
+          ></bc-alert-bar>
+        }
       }
     } @else {
       <bc-alert-bar
@@ -33,6 +41,24 @@
   </div>
 
   <div buttons>
-    <bc-button (buttonClick)="cancel()" [label]="(hasError ? 'APP.CLOSE' : 'COMMON.CANCEL') | translate"></bc-button>
+    <div class="action-group">
+      @for (provider of otherProviders; track provider) {
+        <bc-button
+          [label]="'SECOND_FACTOR_TRANSACTION.SWITCH_TO.' + SecondFactorTransactionProvider[provider] | translate"
+          (buttonClick)="switchProvider(provider)"
+        ></bc-button>
+      }
+    </div>
+    <div class="action-group">
+      <bc-button (buttonClick)="cancel()" [label]="(hasError ? 'APP.CLOSE' : 'COMMON.CANCEL') | translate"></bc-button>
+      @if (!hasError && activeProvider === SecondFactorTransactionProvider.OTP) {
+        <bc-button
+          (buttonClick)="otpComponent?.submitOtp()"
+          [label]="'SECOND_FACTOR_TRANSACTION.OTP_CONFIRM' | translate"
+          variant="primary"
+          [disabled]="otpSubmitDisabled"
+        ></bc-button>
+      }
+    </div>
   </div>
 </bc-dialog>

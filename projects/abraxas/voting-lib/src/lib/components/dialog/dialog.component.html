@@ -6,7 +6,9 @@
 } @else {
   <bc-dialog>
     <div header>
-      <bc-icon-button (buttonClick)="dialogClose.emit()" variant="tertiary" icon="cancel"></bc-icon-button>
+      @if (showCloseButton) {
+        <bc-icon-button (buttonClick)="dialogClose.emit()" variant="tertiary" icon="cancel"></bc-icon-button>
+      }
       <h2 class="mb-0 mr-2">{{ header | translate }}</h2>
     </div>
 

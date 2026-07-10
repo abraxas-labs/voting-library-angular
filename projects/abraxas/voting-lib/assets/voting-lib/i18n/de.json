@@ -57,7 +57,8 @@
       "1": "Urnengang",
       "2": "Abstimmung",
       "3": "Majorzwahl",
-      "4": "Proporzwahl"
+      "4": "Nebenwahl",
+      "5": "Proporzwahl"
     },
     "FILE_FORMATS": {
       "1": "csv",
@@ -69,9 +70,20 @@
     "TITLE": "Transaktionsbestätigung",
     "INFO": "Bitte bestätigen Sie die Transaktion in Ihrer Authentifizierungs-App mit dem Code {{correlationCode}}.",
     "ERROR": "Es ist ein Fehler aufgetreten. Bitte führen Sie die Aktion erneut aus.",
+    "NO_PROVIDER_AVAILABLE": "Kein Bestätigungsverfahren verfügbar.",
     "NO_PUSH_NOTIFICATION": "Keine Push-Benachrichtigung erhalten? Klicken Sie hier für Bestätigung via App!",
     "QR_CODE": "Scannen Sie den QR-Code mit Ihrer Authentifizierungs-App um die Transaktion zu bestätigen.",
-    "QR_CODE_ALT": "QR Code"
+    "QR_CODE_ALT": "QR Code",
+    "OTP_INFO": "Bitte geben Sie den Code aus Ihrer Zwei-Faktor-Authentifizierungs-App ein.",
+    "OTP_ERROR": "Der eingegebene Code ist ungültig. Bitte versuchen Sie es erneut.",
+    "OTP_PLACEHOLDER": "XXXXXX",
+    "OTP_CONFIRM": "Bestätigen",
+    "USE_OTP": "Code eingeben",
+    "USE_NEVIS": "Per Nevis bestätigen",
+    "SWITCH_TO": {
+      "OTP": "OTP verwenden",
+      "NEVIS": "Nevis verwenden"
+    }
   },
   "NOT_FOUND": {
     "TITLE": "Seite nicht gefunden (Error 404)",
@@ -115,9 +127,12 @@
     },
     "403": {
       "MESSAGE": "Zugriff verweigert."
-    },
+    }
+  },
+  "ERROR_MESSAGES": {
     "SecondFactorTransactionDataChangedException": "Die Daten wurden in der Zwischenzeit geändert, somit muss die Aktion erneut ausgeführt werden.",
-    "SecondFactorTransactionNotVerifiedException": "Die Transaktionsbestätigung wurde abgebrochen. Bitte führen Sie die Aktion erneut aus."
+    "SecondFactorTransactionNotVerifiedException": "Die Transaktionsbestätigung wurde abgebrochen. Bitte führen Sie die Aktion erneut aus.",
+    "VerifySecondFactorTimeoutException": "Die Wartezeit für die Transaktionsbestätigung wurde überschritten. Bitte führen Sie die Aktion erneut aus."
   },
   "VALIDATION_MESSAGES": {
     "phone": "Bitte geben Sie eine gültige Telefonnummer ein, optional beginnend mit '+', bestehend aus 7 bis 14 Ziffern; Leerzeichen sind erlaubt.",

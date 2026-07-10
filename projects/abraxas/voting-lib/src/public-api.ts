@@ -50,11 +50,13 @@ export * from './lib/guards/theme.guard';
 /**
  * grpc
  */
+export * from './lib/models/grpc-error.model';
 export * from './lib/services/grpc/grpc-backend.service';
 export * from './lib/services/grpc/grpc-environment';
 export * from './lib/services/grpc/grpc.service';
 export * from './lib/services/grpc/grpc-streaming.service';
 export * from './lib/services/grpc/grpc-handler';
+export * from './lib/services/grpc/grpc-error.utils';
 export * from './lib/services/grpc/grpc-interceptor';
 export * from './lib/services/grpc/interceptors/grpc-app.interceptor';
 export * from './lib/services/grpc/interceptors/grpc-auth.interceptor';
@@ -79,6 +81,11 @@ export * from './lib/services/snackbar.service';
 export * from './lib/services/theme.service';
 export * from './lib/services/language.service';
 export * from './lib/services/second-factor-transaction.service';
+
+/**
+ * second factor transaction models
+ */
+export * from './lib/models/second-factor-transaction.model';
 
 /**
  * misc

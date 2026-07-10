@@ -1,4 +1,4 @@
-# ✨ Changelog (`v5.17.6`)
+# ✨ Changelog (`v5.17.14`)
 
 All notable changes to this project will be documented in this file.
 
@@ -8,11 +8,71 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Info
 
 ```text
-This version -------- v5.17.6
-Previous version ---- v5.17.3
+This version -------- v5.17.14
+Previous version ---- v5.17.6
 Initial version ----- v1.28.0
-Total commits ------- 3
+Total commits ------- 12
 ```
+
+## [v5.17.14] - 2026-07-02
+
+### 🔄 Changed
+
+- show close button option for dialog
+
+## [v5.17.13] - 2026-06-24
+
+### 🔄 Changed
+
+- hide hint count when markdown editor is readonly
+
+## [v5.17.12] - 2026-06-24
+
+### 🔄 Changed
+
+- align hint count with error messages
+
+## [v5.17.11] - 2026-06-24
+
+### 🆕 Added
+
+- add hint count for markdown editor
+
+## [v5.17.10] - 2026-06-18
+
+### 🔄 Changed
+
+- update base-components and add required with label validation message to markdown editor
+
+## [v5.17.9] - 2026-06-18
+
+### 🔄 Changed
+
+- update snackbar message for new base-components version
+
+## [v5.17.8] - 2026-06-15
+
+### 🆕 Added
+
+- add export entity type translation
+
+### 🆕 Added
+
+- fix(VOTING-3184): i18n second factor exception
+
+### 🔄 Changed
+
+- feat!(VOTING-6923): support otp as mfa
+
+### 🔄 Changed
+
+- change sg theme to schalter-e
+
+## [v5.17.7] - 2026-06-09
+
+### 🔄 Changed
+
+- set theme correct after relogin
 
 ## [v5.17.6] - 2026-05-27
 

@@ -12,16 +12,13 @@ import { ERROR_STATUS_CODE_URL_MAPPING, GRPC_ERROR_MAPPER, NOT_FOUND_ERROR_URL, 
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { SnackbarService } from './snackbar.service';
-
-const ERROR_TYPE_SEPARATOR = ':';
+import { GrpcError } from '../models/grpc-error.model';
+import { ERROR_TYPE_SEPARATOR, GRPC_NOT_FOUND_STATUS_CODE, GRPC_PERMISSION_DENIED_CODE, isGrpcError } from './grpc/grpc-error.utils';
 
 const HTTP_NOT_FOUND_STATUS_CODE = 404;
-const GRPC_NOT_FOUND_STATUS_CODE = 5;
-
 const HTTP_PERMISSION_DENIED_CODE = 403;
-const GRPC_PERMISSION_DENIED_CODE = 7;
 
-export type GrpcErrorMapper = (error: any) => undefined | { code: number; message: string };
+export type GrpcErrorMapper = (error: any) => undefined | GrpcError;
 
 @Injectable({
   providedIn: 'root',
@@ -64,7 +61,7 @@ export class GlobalErrorHandler implements ErrorHandler {
       }
     }
 
-    if (error instanceof RpcError) {
+    if (error instanceof RpcError || isGrpcError(error)) {
       this.zone.run(() => this.handleGrpcError(error));
       return true;
     }
@@ -78,13 +75,28 @@ export class GlobalErrorHandler implements ErrorHandler {
   }
 
   protected errorHandled(code: number, errorType: string): void {
+    if (!this.tryNavigateToErrorPage(code, errorType)) {
+      this.showError(this.buildErrorMessage(code, errorType));
+    }
+  }
+
+  protected tryNavigateToErrorPage(code: number, errorType: string): boolean {
+    // for 2fa errors, always display an inline error, never navigate to an error page.
+    if (
+      errorType === 'SecondFactorTransactionNotVerifiedException' ||
+      errorType === 'VerifySecondFactorTimeoutException' ||
+      errorType === 'SecondFactorTransactionDataChangedException'
+    ) {
+      return false;
+    }
+
     if (code in this.statusCodeUrlMapping!) {
       // do not update url in the browser address bar, just render it within angular
       this.router.navigateByUrl(this.statusCodeUrlMapping![code], { skipLocationChange: true });
-      return;
+      return true;
     }
 
-    this.showError(this.buildErrorMessage(code, errorType));
+    return false;
   }
 
   protected showError({ title, message }: { title: string; message: string }): void {

@@ -14,7 +14,9 @@ const supportedThemes = [defaultTheme, sgTheme];
 const customThemeLogoMapping: Record<string, string> = {
   sg: 'assets/voting-lib/whitelabeling-logos/sg.svg',
 };
-const storageKey = 'last-used-theme';
+
+// using '-voting-lib' suffix since base-components using the key 'last-used-theme' for their theme service
+const storageKey = 'last-used-theme-voting-lib';
 
 @Injectable({
   providedIn: 'root',
@@ -43,7 +45,7 @@ export class ThemeService {
     }
 
     if (theme === sgTheme) {
-      this.stylingService.setTheme(ColorTokensThemes.SGKantonLight);
+      this.stylingService.setTheme(ColorTokensThemes.SGSchalterELight);
     } else if (theme === defaultTheme) {
       this.stylingService.setTheme(ColorTokensThemes.AbraxasLight);
     } else {

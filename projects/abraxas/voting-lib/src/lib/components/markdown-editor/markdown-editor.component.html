@@ -84,11 +84,25 @@
     (click)="onContainerClick($event)"
   ></div>
 
-  @if (error && showDefaultErrors && errorMessages.length > 0) {
-    <div [id]="'markdown-editor-errors-' + instanceId" class="markdown-errors" role="alert" aria-live="polite">
-      @for (msg of errorMessages; track msg) {
-        <bc-error>{{ msg }}</bc-error>
+  <mat-hint>
+    <div class="hint-container">
+      @if (error && showDefaultErrors && errorMessages.length > 0) {
+        <div [id]="'markdown-editor-errors-' + instanceId" class="markdown-errors hint-content" role="alert" aria-live="polite">
+          @for (msg of errorMessages; track msg) {
+            <bc-error>{{ msg }}</bc-error>
+          }
+        </div>
       }
+      @if (countText && !readonly) {
+        <div class="count-text" [class.error]="error && showDefaultErrors && errorMessages.length > 0" aria-hidden="true">
+          {{ countText }}
+        </div>
+      }
+    </div>
+  </mat-hint>
+  @if (screenReaderAnnouncement) {
+    <div class="sr-only" role="status" aria-live="polite">
+      {{ screenReaderAnnouncement }}
     </div>
   }
 </div>
