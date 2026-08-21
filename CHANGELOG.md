@@ -1,4 +1,4 @@
-# ✨ Changelog (`v5.17.14`)
+# ✨ Changelog (`v5.17.15`)
 
 All notable changes to this project will be documented in this file.
 
@@ -8,11 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Version Info
 
 ```text
-This version -------- v5.17.14
-Previous version ---- v5.17.6
+This version -------- v5.17.15
+Previous version ---- v5.17.14
 Initial version ----- v1.28.0
-Total commits ------- 12
+Total commits ------- 1
 ```
+
+## [v5.17.15] - 2026-08-05
+
+### 🆕 Added
+
+- add email input validator
 
 ## [v5.17.14] - 2026-07-02
 
